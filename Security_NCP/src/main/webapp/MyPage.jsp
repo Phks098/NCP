@@ -87,7 +87,7 @@ request.setCharacterEncoding("utf-8");
 								</tr>
 
 								<c:choose>
-									<c:when test="${not empty student }">
+									<c:when test="${not empty level}">
 										<c:forEach items="${level}" var="level">
 											<tr>
 												<c:if test="${level.capability_name eq '자기이해'}">
@@ -120,7 +120,13 @@ request.setCharacterEncoding("utf-8");
 											<th>자기이해</th>
 
 											<td colspan="4" rowspan="8" style="font-size: 20px;">진로개발진비도
-												검사를 진행해주세요
+												검사를 진행해주세요</td>
+											<td rowspan="8"><div class="canvas_graph">
+													<canvas id="myCanvas" style="background-color: aliceblue"
+														width="380px" height="380px">			
+															</canvas>
+
+												</div>
 											</td>
 
 										</tr>
@@ -162,7 +168,6 @@ request.setCharacterEncoding("utf-8");
 						<!-- 역량 그래프 요소 -->
 
 						<!-- 역량 그래프 요소 (끝) -->
-						<input type="button" onclick="test()" value="test">
 
 
 

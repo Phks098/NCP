@@ -2,7 +2,9 @@ package data.dao;
 
 import java.io.Reader;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -41,12 +43,15 @@ public class Professor_Student_DAO {
 		return  list;
 	}
 	
-	public static List<Student_VO> getStudent(String professor){
-		List<Student_VO> list = new ArrayList<Student_VO>();
+	public static List<Student_VO> getStudent(String professor,String keyword){
 		
+		List<Student_VO> list = new ArrayList<Student_VO>();
+		Map<String,String> map = new HashMap<String,String>();
+		map.put("professor", professor);
+		map.put("keyword", keyword);
 		sqlMapper = getInstance();
 		SqlSession session = sqlMapper.openSession();
-		list = session.selectList("mapper.student.selectAll_pro", professor);
+		list = session.selectList("mapper.student.searchStudent", map);
 		
 		
 		return list;

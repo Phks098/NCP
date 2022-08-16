@@ -74,4 +74,18 @@ button i {
   position: relative;
 }
 
+ .accord div a {
+  display: inline;
+  float: right;
+  width: 100px;
+  height: 30px;
+  margin: 0 0 20px 10px;
+  border: 1px solid #3d93e4;
+  text-align: center;
+  line-height: 30px;
+}
 
+div a:hover{
+	background: #3d93e4;
+	color: #fff;
+}

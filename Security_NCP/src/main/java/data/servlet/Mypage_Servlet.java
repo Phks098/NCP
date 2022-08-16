@@ -32,7 +32,8 @@ public class Mypage_Servlet extends HttpServlet {
 		PrintWriter writer = response.getWriter();
 		String action = request.getParameter("action");
 		String student = request.getParameter("student");
-		student="201710648";
+		
+		
 		Student_VO getStudent = MyPage_DAO.getStudentInformation(student);
 		ArrayList<Mypage_VO> level = MyPage_DAO.getStudent_Level(student);
 	

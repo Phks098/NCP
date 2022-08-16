@@ -1,17 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ page import="data.dao.*"%>
-<%@ page import="data.vo.*"%>
-<%@ page import="java.util.ArrayList"%>
-<%
-ArrayList<Student_VO> list = (ArrayList<Student_VO>) request.getAttribute("studentList");// 교수의 지도학생 정보
-ArrayList<ArrayList<Mypage_VO>> levelList = (ArrayList<ArrayList<Mypage_VO>>) request.getAttribute("levelList");
-ArrayList<Integer> graph_line = new ArrayList<Integer>();
-String professor = request.getParameter("professor");
-%>
-<%
-request.setCharacterEncoding("utf-8");
-%>
+<%request.setCharacterEncoding("utf-8");%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -38,7 +27,7 @@ request.setCharacterEncoding("utf-8");
 		<div class="contents">
 			<div class="searchFormZone">
 				<div class="inner-left">
-					<input id="keyword" type="text" placeholder="프로그램 명을 입력하세요"
+					<input id="keyword" type="text" placeholder="지도학생 이름을 입력하세요"
 						value="">
 					<button onclick="searchPrograms();">
 						<i class="fa-solid fa-magnifying-glass"></i>
@@ -48,7 +37,7 @@ request.setCharacterEncoding("utf-8");
 				
 				</div>
 			</div>
-			<div id="accordion" class="accordion"></div>
+			<div id="accord" class="accord"></div>
 		</div>
 
 

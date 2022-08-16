@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -37,21 +38,16 @@ public class Professor_Student extends HttpServlet {
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=UTF-8");
 		Gson gson = new Gson();
+		String professor = request.getParameter("professor");
 		
 		
-		
-		String professor = "10008";
+		professor = "10008";
 		String keyword = request.getParameter("keyword");
 		
-		List<Student_VO> studentList = Professor_Student_DAO.getStudent(professor);
-		List<Mypage_VO> leveList =Professor_Student_DAO.getStudent_LevelAll(professor);
+		List<Student_VO> studentList = Professor_Student_DAO.getStudent(professor,keyword);
 		List<Map<String,Object>> studentMap = new ArrayList<>();
-	
-		
-		
-		
+			
 		for(Student_VO std : studentList) {
-			int count = 0;
 			Map<String, Object> data = new HashMap<>();
 			data.put("university_number", (String)std.getUniversity_number());
 			data.put("name", (String)std.getName());
@@ -59,14 +55,6 @@ public class Professor_Student extends HttpServlet {
 			data.put("grade",(String)std.getGrade());
 			data.put("possfer", (String)std.getPossfer());
 			data.put("sex",(String)std.getSex());
-			
-			List<Mypage_VO> temp = new ArrayList<>();
-			for (Mypage_VO level : leveList) {
-				if(level.getUniversity_number().equals(std.getUniversity_number())) {
-					temp.add(level);
-				}
-			}
-			data.put("level",(List<Mypage_VO>)temp);
 			studentMap.add(data);
 		}
 	
