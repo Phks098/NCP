@@ -65,9 +65,9 @@ public class AdminMode_servlet extends HttpServlet {
 		
 		
 		nextPage = "Admin_mode.jsp";
-		ArrayList<Matching_criteria_VO> match = dao.getAll_Matching_criteria_VO(); // 전체 매칭 비율을 가져온다
-		ArrayList<Professor_weight_VO> weight = dao.getAll_Professor_weight_VO(); // 전체 가중치를 가져온다
-		ArrayList<Diagnosis_criteria_VO> level = dao.getAll_Diagnosis_criteria_VO(); // 전체 준비 수준을 가져온다
+		ArrayList<Matching_criteria_VO> match = dao.getAll_Matching_criteria_VO();
+		ArrayList<Professor_weight_VO> weight = dao.getAll_Professor_weight_VO();
+		ArrayList<Diagnosis_criteria_VO> level = dao.getAll_Diagnosis_criteria_VO(); 
 
 		request.setAttribute("weight", weight);
 		request.setAttribute("match", match);

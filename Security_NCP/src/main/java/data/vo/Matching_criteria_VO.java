@@ -4,10 +4,7 @@ public class Matching_criteria_VO {
 	int capability_number;
 	int category_number;
 	float matching_rate;
-	
-	
-	
-	
+		
 	public Matching_criteria_VO(int capability_number, int category_number, float matching_rate) {
 		super();
 		this.capability_number = capability_number;
@@ -15,13 +12,9 @@ public class Matching_criteria_VO {
 		this.matching_rate = matching_rate;
 	}
 
-	
-	
 	public Matching_criteria_VO() {
 		super();
 	}
-
-
 
 	public int getCapability_number() {
 		return capability_number;
@@ -53,6 +46,5 @@ public class Matching_criteria_VO {
 				+ ", matching_rate=" + matching_rate + "]";
 	}
 
-	
-	
+
 }

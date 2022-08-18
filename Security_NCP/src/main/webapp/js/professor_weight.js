@@ -4,18 +4,22 @@
 
 const request = new XMLHttpRequest();
 
-window.onload = searchPrograms();
+
+window.addEventListener('load', function() {
+  searchPrograms();
+});
 
 function searchPrograms() {
 	request.open("Get", "./Professor_Weight", true);
 	request.onreadystatechange = searchProcess;
 	request.send(null);
-
+	
 }
 
 function searchProcess() {
 	const WeightSetArea = document.getElementById("WeightSetArea");// id='accordion' 태그에 접근
 	if (request.readyState == 4 && request.status == 200) {
+		
 		let result = request.responseText;
 		result = JSON.parse(result);
 
@@ -23,7 +27,8 @@ function searchProcess() {
 
 		WeightSetArea.innerHTML = "";
 		createWeight(WeightSetArea, result);
-
+		getMatch();
+		
 	} else {
 		console.log("진행 싫패	");
 	}
@@ -78,7 +83,7 @@ function createWeight(WeightSetArea, data) {
 	input05.setAttribute("onfocus", "this.placeholder=''");
 	input05.setAttribute("onblur", "this.placeholder='신규 가중치를 입력하세요' ");
 	input05.setAttribute("name", "setweight");
-	input05.setAttribute("value",data[4]["weight"]);
+	input05.setAttribute("value", data[4]["weight"]);
 
 	td02_1.innerHTML = "매우 그렇다(5점)";
 	td02_2.innerHTML = data[4]["weight"];
@@ -101,7 +106,7 @@ function createWeight(WeightSetArea, data) {
 	input04.setAttribute("onfocus", "this.placeholder=''");
 	input04.setAttribute("onblur", "this.placeholder='신규 가중치를 입력하세요' ");
 	input04.setAttribute("name", "setweight");
-	input04.setAttribute("value",data[3]["weight"]);
+	input04.setAttribute("value", data[3]["weight"]);
 
 	td03_1.innerHTML = "매우 그렇다(5점)";
 	td03_2.innerHTML = data[3]["weight"];
@@ -131,7 +136,7 @@ function createWeight(WeightSetArea, data) {
 	input03.setAttribute("onfocus", "this.placeholder=''");
 	input03.setAttribute("onblur", "this.placeholder='신규 가중치를 입력하세요' ");
 	input03.setAttribute("name", "setweight");
-	input03.setAttribute("value",data[2]["weight"]);
+	input03.setAttribute("value", data[2]["weight"]);
 
 	td04_1.innerHTML = "매우 그렇다(5점)";
 	td04_2.innerHTML = data[2]["weight"];
@@ -155,7 +160,7 @@ function createWeight(WeightSetArea, data) {
 	input02.setAttribute("onfocus", "this.placeholder=''");
 	input02.setAttribute("onblur", "this.placeholder='신규 가중치를 입력하세요' ");
 	input02.setAttribute("name", "setweight");
-	input02.setAttribute("value",data[1]["weight"]);
+	input02.setAttribute("value", data[1]["weight"]);
 
 	td05_1.innerHTML = "매우 그렇다(5점)";
 	td05_2.innerHTML = data[1]["weight"];
@@ -178,7 +183,7 @@ function createWeight(WeightSetArea, data) {
 	input01.setAttribute("onfocus", "this.placeholder=''");
 	input01.setAttribute("onblur", "this.placeholder='신규 가중치를 입력하세요' ");
 	input01.setAttribute("name", "setweight");
-	input01.setAttribute("value",data[0]["weight"]);
+	input01.setAttribute("value", data[0]["weight"]);
 
 
 	td06_1.innerHTML = "매우 그렇다(5점)";
@@ -197,14 +202,14 @@ function createWeight(WeightSetArea, data) {
 	tbody.appendChild(tr04);
 	tbody.appendChild(tr05);
 	tbody.appendChild(tr06);
-	
+
 	table.appendChild(tbody);
-	
+
 	let save = document.createElement("input");
 	save.setAttribute("type", "button");
 	save.setAttribute("value", "저장");
 	save.setAttribute("onclick", "WeightUdate()");
-	save.setAttribute("style","width:110px; height:30px");
+	save.setAttribute("style", "width:110px; height:30px");
 
 	div.appendChild(table);
 	div.append(save);
@@ -212,22 +217,27 @@ function createWeight(WeightSetArea, data) {
 }
 
 
-function WeightUdate(){
-	
+function WeightUdate() {
+
 	const weigttest = document.getElementsByName("setweight");
 	let weigt_1 = weigttest[0].value;
 	let weigt_2 = weigttest[1].value;
 	let weigt_3 = weigttest[2].value;
 	let weigt_4 = weigttest[3].value;
 	let weigt_5 = weigttest[4].value;
-	
-	let parameter = "?weigt_1="+weigt_1+"&weigt_2="+weigt_2+"&weigt_3="+weigt_3+"&weigt_4="+weigt_4+"&weigt_5="+weigt_5;
-	
+
+	let parameter = "?weigt_1=" + weigt_1 + "&weigt_2=" + weigt_2+ "&weigt_3=" + weigt_3 + "&weigt_4=" + weigt_4 + "&weigt_5=" + weigt_5;
+
 	console.log(weigttest[0].value);
-	
-	request.open("Put", "./Professor_Weight"+parameter, true);
+
+	request.open("Put", "./Professor_Weight" + parameter, true);
 	request.onreadystatechange = searchProcess;
 	request.send(null);
-	
-	
+
+
 }
+
+
+
+
+

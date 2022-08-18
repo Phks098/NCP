@@ -40,9 +40,18 @@ request.setCharacterEncoding("utf-8");
 						src="https://semsplus.seowon.ac.kr/contents/images/client/sub/icon_tit_lg.png" />
 					<h3 class="info_text">가중치 설정</h3>
 				</div>
-
+				
 				<div id="WeightSetArea" class="WeightSetArea"></div>
-
+				<br><br>
+				<div class="info_text_area">
+					<img
+						src="https://semsplus.seowon.ac.kr/contents/images/client/sub/icon_tit_lg.png" />
+					<h3 class="info_text">매칭 비율 설정</h3>
+				</div>
+				
+				<div id="matchArea" class="matchArea">
+				
+				</div>
 
 
 			</div>
@@ -53,5 +62,8 @@ request.setCharacterEncoding("utf-8");
 	<script src="js/SitemapPopup.js"></script>
 	<script src="js/LoginPopup.js"></script>
 	<script src="js/professor_weight.js"></script>
+	<script src="js/Matching_Criteria.js"></script>
+	
+	
 </body>
 </html>
