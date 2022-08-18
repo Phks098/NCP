@@ -22,7 +22,7 @@ public class Admin_Set_DAO {
 	private static SqlSessionFactory sqlMapper = null;
 	
 	private Connection getConnection() throws Exception {
-		String url = "jdbc:mysql://211.59.155.146:3306/ncp";
+		String url = "jdbc:mysql://localhost/ncp?serverTimezone=UTC";
 		String id = "root1";
 		String pw = "root";
 

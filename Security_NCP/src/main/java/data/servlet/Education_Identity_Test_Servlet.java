@@ -49,10 +49,10 @@ public class Education_Identity_Test_Servlet extends HttpServlet {
 		
 		
 		
-		//Ä¿¸®¾î³Ý °Ë»ç Á¦Ãâ½Ã ´Ù½Ã °á°ú¸¦ °è»êÇØ¼­ »êÃâÇØÁØ´Ù.
+		//Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ø¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø´ï¿½.
 		
 		else if(action.equals("reTest")) {
-			System.out.println(univer+"ÇÐ»ýÀÇ Áø·Î°³¹ßÁØºñµµ°Ë»ç ½ÃÀÛÇß½À´Ï´Ù.");
+			System.out.println(univer+"ï¿½Ð»ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Î°ï¿½ï¿½ï¿½ï¿½Øºñµµ°Ë»ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ß½ï¿½ï¿½Ï´ï¿½.");
 			ArrayList<String> value = new ArrayList();
 			System.out.println("reTest");
 			
@@ -68,7 +68,7 @@ public class Education_Identity_Test_Servlet extends HttpServlet {
 		
 		
 		
-		//Áø·ÎÁ¤Ã¼°¨ °Ë»ç Á¦Ãâ½Ã ´Ù½Ã °á°ú¸¦ °è»êÇØÁØ´Ù.
+		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½Ë»ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø´ï¿½.
 		else if(action.equals("Education_Test_Set")) {
 			System.out.println("Education_Test_Set_start");
 			ArrayList<String> value = new ArrayList();
@@ -79,7 +79,7 @@ public class Education_Identity_Test_Servlet extends HttpServlet {
 			for (int i = 0; i < 19; i++) {
 				value.add(request.getParameter("check_" + (i + 1)));
 			}
-			// value = Áø·ÎÁ¤Ã¼°¨ ¼±ÅÃÁö °á°ú¸¦ ÀúÀåÇÏ´Â º¯¼öÀÌ´Ù.
+			// value = ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì´ï¿½.
 			
 			dao2.insert_Education_Identity_Test(value,univer);
 			

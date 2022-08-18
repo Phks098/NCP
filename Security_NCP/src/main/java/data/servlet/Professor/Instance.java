@@ -39,7 +39,7 @@ public class Instance extends HttpServlet {
 		
 		Scholar_Evaluation_DAO.SetEvaluation(value, university_number);
 		
-		response.sendRedirect("/Security_NCP/Professor_Search_Student.jsp");
+		response.sendRedirect("/Professor_Search_Student.jsp");
 	}
 
 	

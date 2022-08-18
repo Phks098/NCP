@@ -103,7 +103,7 @@ function createList(accordion, data){
 	gotoStudentInformation.innerText = "자세히보기";
 	
 	let gotoCompetency = document.createElement("a");
-	gotoCompetency.setAttribute("href", "Mypage_Servlet?student=" + data['university_number']);
+	gotoCompetency.setAttribute("href", "Professr_Career?university_number=" + data['university_number']);
 	gotoCompetency.innerText = "역량평가";
 	
 	let gotoIdentity   = document.createElement("a");

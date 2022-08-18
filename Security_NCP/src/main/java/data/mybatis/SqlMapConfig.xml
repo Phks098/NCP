@@ -42,11 +42,12 @@
 			alias="Education_identity_test_score_VO" />
 		<typeAlias type="data.vo.Education_Result_VO"
 			alias="Education_Result_VO" />
+		<typeAlias type="data.vo.Manager_Information_VO" alias="Manager_Information_VO" />
 		<typeAlias type="data.vo.Scholar_Evaluation_VO" alias="Scholar_Evaluation_VO"/>
 		<typeAlias type="data.vo.Student_Code_VO"  alias="Student_Code_VO"/>
 		<typeAlias type="data.vo.Education_Reasult_Score_VO" alias="Education_Reasult_Score_VO"/>
 		<typeAlias type="data.vo.Education_Result_Get_VO" alias="Education_Result_Get_VO"/>
-
+		<typeAlias type="data.vo.Users_VO" alias="Users_VO" />	
 	</typeAliases>
 	<environments default="development">
 		<environment id="development">
@@ -78,7 +79,8 @@
 		<mapper resource="data/mybatis/mappers/Education_Reasult_Get.xml"/>
 		<mapper resource="data/mybatis/mappers/Professor_weight.xml"/>
 		<mapper resource="data/mybatis/mappers/Diagnosis_criteria.xml"/>
-		
+		<mapper resource="data/mybatis/mappers/Users.xml" />
+		<mapper resource="data/mybatis/mappers/Manager_Information.xml" />
 		
 		
 	</mappers>

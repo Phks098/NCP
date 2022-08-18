@@ -35,7 +35,7 @@ public class Scholar_Evaluation_DAO {
 		return sqlMapper;
 	}
 
-	public ArrayList<Student_VO> getStuduent_AllList(String professor) {
+	public static ArrayList<Student_VO> getStuduent_AllList(String professor) {
 
 		sqlMapper = getInstance();
 		SqlSession session = sqlMapper.openSession();
@@ -80,16 +80,16 @@ public class Scholar_Evaluation_DAO {
 //		}
 //	}
 
-	// 진로개발준비도 검사를 걸러주는 함수
-	public void SetEvaluation(ArrayList<String> list, String univertion_number) {
+
+	public static  void  SetEvaluation(ArrayList<String> list, String univertion_number) {
 		sqlMapper = getInstance();
 		SqlSession session = sqlMapper.openSession();
 
-		// 해당 학생이 검사가 처음이라면 그냥 입력한다.
+	
 		if (session.selectList("mapper.scholar.select",univertion_number) == null) {
 			insertCareer_Evaluation(univertion_number, list);
 		}
-		// 아니라면 기존 평가내용을 전부 삭제한후 다시 입력한다.
+
 		else {
 			deleteCareer_Evaluation(univertion_number);
 			insertCareer_Evaluation(univertion_number, list);
@@ -97,8 +97,8 @@ public class Scholar_Evaluation_DAO {
 
 	}
 
-	// 진로개발준비도검사 업데이트하기
-	public void deleteCareer_Evaluation(String student) {
+
+	public static void deleteCareer_Evaluation(String student) {
 
 		sqlMapper = getInstance();
 		SqlSession session = sqlMapper.openSession();
@@ -108,8 +108,7 @@ public class Scholar_Evaluation_DAO {
 
 	}
 
-	// 진로개발준비도 평가를 입력하는 함수
-	public void insertCareer_Evaluation(String student,ArrayList<String> checkList) {
+	public static void insertCareer_Evaluation(String student,ArrayList<String> checkList) {
 		sqlMapper = getInstance();
 		SqlSession session = sqlMapper.openSession();
 		

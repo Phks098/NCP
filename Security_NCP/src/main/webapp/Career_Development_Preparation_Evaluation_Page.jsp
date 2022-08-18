@@ -31,7 +31,7 @@ request.setCharacterEncoding("utf-8");
 	<main class="main_contents">
 		<div class="contents">
 			<section class="nav-contents">
-			<form action="/Security_NCP/Professr_Career/Instance?university_number=${student.university_number}" method="post">
+			<form action="Professr_Career/Instance?university_number=${student.university_number}" method="post">
 				<div class="contents-info show">
 					<div class="tbl tbl_fixed tbl_row">
 						<table>
