@@ -236,3 +236,15 @@ input {
 	font-size: 1.5rem;
 	border-style: none;
 }
+.matchText{
+	width:80px;
+	height: 40px;
+}
+
+
+.saveBtn {
+	width: 110px;
+	height: 40px;
+}
+
+

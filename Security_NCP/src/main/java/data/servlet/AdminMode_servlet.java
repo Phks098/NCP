@@ -2,13 +2,16 @@ package data.servlet;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.google.gson.Gson;
 
 import data.dao.AdminMode_DAO;
 import data.vo.Diagnosis_criteria_VO;
@@ -28,56 +31,22 @@ public class AdminMode_servlet extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		AdminMode_DAO dao = new AdminMode_DAO();
-
-		String nextPage = null;
+		ArrayList<Professor_weight_VO> weight = dao.getAll_Professor_weight_VO();
+		ArrayList<Matching_criteria_VO> match = dao.getAll_Matching_criteria_VO();
+		ArrayList<Diagnosis_criteria_VO> level = dao.getAll_Diagnosis_criteria_VO(); 
 		request.setCharacterEncoding("utf-8");
 		response.setContentType("text/html;charset=utf-8");
-		String action = request.getParameter("action");
 		
-
-		if (action == null) {
-
-		} else if (action.equals("weightSet")) {
-			String[] weightset = request.getParameterValues("setweight");
-			
-			for(int i = 0; i<weightset.length/2; i++) {
-				String temp = weightset[i];
-				weightset[i] = weightset[weightset.length-i-1];
-				weightset[weightset.length-i-1] =temp;
-			}
-				
-			for (int i = 0; i < weightset.length; i++) {
-				if (!weightset[i].equals("")) {
-					dao.Update_Professor_weight_VO(weightset[i], i + 1);
-				}
-			}
-		}
+		Map<String,Object> data = new HashMap<String,Object>();
 		
-		else if(action.equals("matchSet")) {
-			String[] matchset = request.getParameterValues("setMatch");
-			dao.Update_Matching(matchset);
-		}
+		data.put("weight", weight);
+		data.put("match", match);
+		data.put("leve", level);
 		
-		else if(action.equals("setLevel")) {
-			String[] level = request.getParameterValues("setLevel");
-			dao.Update_Leve(level);
-		}
+		Gson gson = new Gson();
+		String jsonData = gson.toJson(data);
+		response.getWriter().write(jsonData);
 		
-		
-		nextPage = "Admin_mode.jsp";
-		ArrayList<Matching_criteria_VO> match = dao.getAll_Matching_criteria_VO();
-		ArrayList<Professor_weight_VO> weight = dao.getAll_Professor_weight_VO();
-		ArrayList<Diagnosis_criteria_VO> level = dao.getAll_Diagnosis_criteria_VO(); 
-
-		request.setAttribute("weight", weight);
-		request.setAttribute("match", match);
-		request.setAttribute("level", level);
-		
-		
-		
-		
-		RequestDispatcher dispatcher = request.getRequestDispatcher(nextPage);
-		dispatcher.forward(request, response);
 
 	}
 

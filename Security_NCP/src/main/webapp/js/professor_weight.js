@@ -10,14 +10,14 @@ window.addEventListener('load', function() {
 });
 
 function searchPrograms() {
-	request.open("Get", "./Professor_Weight", true);
+	request.open("Get", "./AdminMode", true);
 	request.onreadystatechange = searchProcess;
 	request.send(null);
 	
 }
 
 function searchProcess() {
-	const WeightSetArea = document.getElementById("WeightSetArea");// id='accordion' 태그에 접근
+	
 	if (request.readyState == 4 && request.status == 200) {
 		
 		let result = request.responseText;
@@ -25,8 +25,8 @@ function searchProcess() {
 
 		console.log(result);
 
-		WeightSetArea.innerHTML = "";
-		createWeight(WeightSetArea, result);
+		
+		createWeight(result);
 		getMatch();
 		
 	} else {
@@ -37,189 +37,274 @@ function searchProcess() {
 
 }
 
-function createWeight(WeightSetArea, data) {
-
-	let div = document.createElement("div");
-	let table = document.createElement("table");
-	let tbody = document.createElement("tbody");
-
-	//헤더
-	let tr00 = document.createElement("tr");
-	let th00 = document.createElement("th");
-	th00.colSpan = 3;
-	th00.innerHTML = "지도 교수 진로개발준비도 평가를 통합점수에 반영하기 위한 가중치 설정"
-	tr00.appendChild(th00);
-
-	let tr01 = document.createElement("tr");
-	let th01_1 = document.createElement("th");
-	let th01_2 = document.createElement("th");
-	let th01_3 = document.createElement("th");
-
-
-
-	th01_1.innerHTML = "영역별 평가 척도 (수준)";
-	th01_2.innerHTML = "기존 가중치";
-	th01_3.innerHTML = "신규 가중치";
-
-	th01_1.setAttribute("style", "width:25%");
-	th01_2.setAttribute("style", "width:25%");
-	th01_3.setAttribute("style", "width:50%");
-
-
-	tr01.appendChild(th01_1);
-	tr01.appendChild(th01_2);
-	tr01.appendChild(th01_3);
-
-
-	//5점
-	let tr02 = document.createElement("tr");
-	let td02_1 = document.createElement("td");
-	let td02_2 = document.createElement("td");
-	let td02_3 = document.createElement("td");
-	let input05 = document.createElement("input");
-	input05.setAttribute("type", "number");
-	input05.setAttribute("step", 0.1);
-	input05.setAttribute("placeholder", "신규 가중치를 입력하세요");
-	input05.setAttribute("onfocus", "this.placeholder=''");
-	input05.setAttribute("onblur", "this.placeholder='신규 가중치를 입력하세요' ");
-	input05.setAttribute("name", "setweight");
-	input05.setAttribute("value", data[4]["weight"]);
-
-	td02_1.innerHTML = "매우 그렇다(5점)";
-	td02_2.innerHTML = data[4]["weight"];
-	td02_3.appendChild(input05);
-
-
-	tr02.appendChild(td02_1);
-	tr02.appendChild(td02_2);
-	tr02.appendChild(td02_3);
-
-	//4점 가중치
-	let tr03 = document.createElement("tr");
-	let td03_1 = document.createElement("td");
-	let td03_2 = document.createElement("td");
-	let td03_3 = document.createElement("td");
-	let input04 = document.createElement("input");
-	input04.setAttribute("type", "number");
-	input04.setAttribute("step", 0.1);
-	input04.setAttribute("placeholder", "신규 가중치를 입력하세요");
-	input04.setAttribute("onfocus", "this.placeholder=''");
-	input04.setAttribute("onblur", "this.placeholder='신규 가중치를 입력하세요' ");
-	input04.setAttribute("name", "setweight");
-	input04.setAttribute("value", data[3]["weight"]);
-
-	td03_1.innerHTML = "매우 그렇다(5점)";
-	td03_2.innerHTML = data[3]["weight"];
-	td03_3.appendChild(input04);
-
-
-	tr03.appendChild(td03_1);
-	tr03.appendChild(td03_2);
-	tr03.appendChild(td03_3);
-
-
-
-
-
-
-
-
-	//3점 가중치
-	let tr04 = document.createElement("tr");
-	let td04_1 = document.createElement("td");
-	let td04_2 = document.createElement("td");
-	let td04_3 = document.createElement("td");
-	let input03 = document.createElement("input");
-	input03.setAttribute("type", "number");
-	input03.setAttribute("step", 0.1);
-	input03.setAttribute("placeholder", "신규 가중치를 입력하세요");
-	input03.setAttribute("onfocus", "this.placeholder=''");
-	input03.setAttribute("onblur", "this.placeholder='신규 가중치를 입력하세요' ");
-	input03.setAttribute("name", "setweight");
-	input03.setAttribute("value", data[2]["weight"]);
-
-	td04_1.innerHTML = "매우 그렇다(5점)";
-	td04_2.innerHTML = data[2]["weight"];
-	td04_3.appendChild(input03);
-
-
-	tr04.appendChild(td04_1);
-	tr04.appendChild(td04_2);
-	tr04.appendChild(td04_3);
-
-
-	//2점 가중치
-	let tr05 = document.createElement("tr");
-	let td05_1 = document.createElement("td");
-	let td05_2 = document.createElement("td");
-	let td05_3 = document.createElement("td");
-	let input02 = document.createElement("input");
-	input02.setAttribute("type", "number");
-	input02.setAttribute("step", 0.1);
-	input02.setAttribute("placeholder", "신규 가중치를 입력하세요");
-	input02.setAttribute("onfocus", "this.placeholder=''");
-	input02.setAttribute("onblur", "this.placeholder='신규 가중치를 입력하세요' ");
-	input02.setAttribute("name", "setweight");
-	input02.setAttribute("value", data[1]["weight"]);
-
-	td05_1.innerHTML = "매우 그렇다(5점)";
-	td05_2.innerHTML = data[1]["weight"];
-	td05_3.appendChild(input02);
-
-
-	tr05.appendChild(td05_1);
-	tr05.appendChild(td05_2);
-	tr05.appendChild(td05_3);
-
-	//1점 가중치
-	let tr06 = document.createElement("tr");
-	let td06_1 = document.createElement("td");
-	let td06_2 = document.createElement("td");
-	let td06_3 = document.createElement("td");
-	let input01 = document.createElement("input");
-	input01.setAttribute("type", "number");
-	input01.setAttribute("step", 0.1);
-	input01.setAttribute("placeholder", "신규 가중치를 입력하세요");
-	input01.setAttribute("onfocus", "this.placeholder=''");
-	input01.setAttribute("onblur", "this.placeholder='신규 가중치를 입력하세요' ");
-	input01.setAttribute("name", "setweight");
-	input01.setAttribute("value", data[0]["weight"]);
-
-
-	td06_1.innerHTML = "매우 그렇다(5점)";
-	td06_2.innerHTML = data[0]["weight"];
-	td06_3.appendChild(input01);
-
-
-	tr06.appendChild(td06_1);
-	tr06.appendChild(td06_2);
-	tr06.appendChild(td06_3);
-
-	tbody.appendChild(tr00);
-	tbody.appendChild(tr01);
-	tbody.appendChild(tr02);
-	tbody.appendChild(tr03);
-	tbody.appendChild(tr04);
-	tbody.appendChild(tr05);
-	tbody.appendChild(tr06);
-
-	table.appendChild(tbody);
-
-	let save = document.createElement("input");
-	save.setAttribute("type", "button");
-	save.setAttribute("value", "저장");
-	save.setAttribute("onclick", "WeightUdate()");
-	save.setAttribute("style", "width:110px; height:30px");
-
-	div.appendChild(table);
-	div.append(save);
-	WeightSetArea.appendChild(div);
+function createWeight(data) {
+	
+	//data[4] = 5점 가중치값 
+	let td05 = document.getElementById("td05");
+	let td04 = document.getElementById("td04");
+	let td03 = document.getElementById("td03");
+	let td02 = document.getElementById("td02");
+	let td01 = document.getElementById("td01");
+	
+	let weightIn05 = document.getElementById("input05");
+	let weightIn04 = document.getElementById("input04");
+	let weightIn03 = document.getElementById("input03");
+	let weightIn02 = document.getElementById("input02");
+	let weightIn01 = document.getElementById("input01");
+	
+	
+	weightIn05.setAttribute("value", data["weight"][4]["weight"]);
+	weightIn04.setAttribute("value", data["weight"][3]["weight"]);
+	weightIn03.setAttribute("value", data["weight"][2]["weight"]);
+	weightIn02.setAttribute("value", data["weight"][1]["weight"]);
+	weightIn01.setAttribute("value", data["weight"][0]["weight"]);
+	
+	td05.innerText= data["weight"][4]["weight"];
+	td04.innerText= data["weight"][3]["weight"];
+	td03.innerText= data["weight"][2]["weight"];
+	td02.innerText= data["weight"][1]["weight"];
+	td01.innerText= data["weight"][0]["weight"];
+	
+	
+	
+	
+	
+	
+	
+	// 매칭 비율 설정
+	//자기이해
+	match01_1 = document.getElementById("match01_1");
+	match01_2 = document.getElementById("match01_2");
+	match01_3 = document.getElementById("match01_3");
+	match01_4 = document.getElementById("match01_4");
+	match01_5 = document.getElementById("match01_5");
+	match01_6 = document.getElementById("match01_6");
+	match01_7 = document.getElementById("match01_7");
+	
+	let sum = 0;
+		
+	match01_1.setAttribute("value",data["match"][0]["matching_rate"]);
+	match01_2.setAttribute("value",data["match"][1]["matching_rate"]);
+	match01_3.setAttribute("value",data["match"][2]["matching_rate"]);
+	match01_4.setAttribute("value",data["match"][3]["matching_rate"]);
+	match01_5.setAttribute("value",data["match"][4]["matching_rate"]);
+	match01_6.setAttribute("value",data["match"][5]["matching_rate"]);
+	
+	sum =data["match"][0]["matching_rate"] +data["match"][1]["matching_rate"]+data["match"][2]["matching_rate"]+data["match"][3]["matching_rate"]+data["match"][4]["matching_rate"]+data["match"][5]["matching_rate"];
+	
+	match01_7.setAttribute("value",sum);
+	
+	
+	
+	match02_1 = document.getElementById("match02_1");
+	match02_2 = document.getElementById("match02_2");
+	match02_3 = document.getElementById("match02_3");
+	match02_4 = document.getElementById("match02_4");
+	match02_5 = document.getElementById("match02_5");
+	match02_6 = document.getElementById("match02_6");
+	match02_7 = document.getElementById("match02_7");
+	
+	sum = 0;
+		
+	match02_1.setAttribute("value",data["match"][6]["matching_rate"]);
+	match02_2.setAttribute("value",data["match"][7]["matching_rate"]);
+	match02_3.setAttribute("value",data["match"][8]["matching_rate"]);
+	match02_4.setAttribute("value",data["match"][9]["matching_rate"]);
+	match02_5.setAttribute("value",data["match"][10]["matching_rate"]);
+	match02_6.setAttribute("value",data["match"][11]["matching_rate"]);
+	
+	sum =data["match"][6]["matching_rate"] +data["match"][7]["matching_rate"]+data["match"][8]["matching_rate"]+data["match"][9]["matching_rate"]+data["match"][10]["matching_rate"]+data["match"][11]["matching_rate"];
+	
+	
+	
+	match02_7.setAttribute("value",sum);
+	
+	
+	
+	//진로탐색
+	match03_1 = document.getElementById("match03_1");
+	match03_2 = document.getElementById("match03_2");
+	match03_3 = document.getElementById("match03_3");
+	match03_4 = document.getElementById("match03_4");
+	match03_5 = document.getElementById("match03_5");
+	match03_6 = document.getElementById("match03_6");
+	match03_7 = document.getElementById("match03_7");
+	
+	sum = 0;
+		
+	match03_1.setAttribute("value",data["match"][12]["matching_rate"]);
+	match03_2.setAttribute("value",data["match"][13]["matching_rate"]);
+	match03_3.setAttribute("value",data["match"][14]["matching_rate"]);
+	match03_4.setAttribute("value",data["match"][15]["matching_rate"]);
+	match03_5.setAttribute("value",data["match"][16]["matching_rate"]);
+	match03_6.setAttribute("value",data["match"][17]["matching_rate"]);
+	
+	sum =data["match"][12]["matching_rate"] +data["match"][13]["matching_rate"]+data["match"][14]["matching_rate"]+data["match"][15]["matching_rate"]+data["match"][16]["matching_rate"]+data["match"][17]["matching_rate"];
+	
+	
+	
+	match03_7.setAttribute("value",sum);
+	
+	//진로결정
+	match03_1 = document.getElementById("match03_1");
+	match03_2 = document.getElementById("match03_2");
+	match03_3 = document.getElementById("match03_3");
+	match03_4 = document.getElementById("match03_4");
+	match03_5 = document.getElementById("match03_5");
+	match03_6 = document.getElementById("match03_6");
+	match03_7 = document.getElementById("match03_7");
+	
+	sum = 0;
+		
+	match03_1.setAttribute("value",data["match"][12]["matching_rate"]);
+	match03_2.setAttribute("value",data["match"][13]["matching_rate"]);
+	match03_3.setAttribute("value",data["match"][14]["matching_rate"]);
+	match03_4.setAttribute("value",data["match"][15]["matching_rate"]);
+	match03_5.setAttribute("value",data["match"][16]["matching_rate"]);
+	match03_6.setAttribute("value",data["match"][17]["matching_rate"]);
+	
+	sum =data["match"][12]["matching_rate"] +data["match"][13]["matching_rate"]+data["match"][14]["matching_rate"]+data["match"][15]["matching_rate"]+data["match"][16]["matching_rate"]+data["match"][17]["matching_rate"];
+	
+	
+	//진로설계
+	match03_7.setAttribute("value",sum);
+	
+	match04_1 = document.getElementById("match04_1");
+	match04_2 = document.getElementById("match04_2");
+	match04_3 = document.getElementById("match04_3");
+	match04_4 = document.getElementById("match04_4");
+	match04_5 = document.getElementById("match04_5");
+	match04_6 = document.getElementById("match04_6");
+	match04_7 = document.getElementById("match04_7");
+	
+	sum = 0;
+		
+	match04_1.setAttribute("value",data["match"][18]["matching_rate"]);
+	match04_2.setAttribute("value",data["match"][19]["matching_rate"]);
+	match04_3.setAttribute("value",data["match"][20]["matching_rate"]);
+	match04_4.setAttribute("value",data["match"][21]["matching_rate"]);
+	match04_5.setAttribute("value",data["match"][22]["matching_rate"]);
+	match04_6.setAttribute("value",data["match"][23]["matching_rate"]);
+	
+	sum =data["match"][18]["matching_rate"] +data["match"][19]["matching_rate"]+data["match"][20]["matching_rate"]+data["match"][21]["matching_rate"]+data["match"][22]["matching_rate"]+data["match"][23]["matching_rate"];
+	
+	match04_7.setAttribute("value",sum);
+	
+	
+	//진로설계
+	match03_7.setAttribute("value",sum);
+	
+	match05_1 = document.getElementById("match05_1");
+	match05_2 = document.getElementById("match05_2");
+	match05_3 = document.getElementById("match05_3");
+	match05_4 = document.getElementById("match05_4");
+	match05_5 = document.getElementById("match05_5");
+	match05_6 = document.getElementById("match05_6");
+	match05_7 = document.getElementById("match05_7");
+	
+	sum = 0;
+		
+	match05_1.setAttribute("value",data["match"][24]["matching_rate"]);
+	match05_2.setAttribute("value",data["match"][25]["matching_rate"]);
+	match05_3.setAttribute("value",data["match"][26]["matching_rate"]);
+	match05_4.setAttribute("value",data["match"][27]["matching_rate"]);
+	match05_5.setAttribute("value",data["match"][28]["matching_rate"]);
+	match05_6.setAttribute("value",data["match"][29]["matching_rate"]);
+	
+	sum =data["match"][24]["matching_rate"] +data["match"][25]["matching_rate"]+data["match"][26]["matching_rate"]
+	+data["match"][27]["matching_rate"]+data["match"][28]["matching_rate"]+data["match"][29]["matching_rate"];
+	
+	match05_7.setAttribute("value",sum);
+	
+	//실무역량
+	match06_1 = document.getElementById("match06_1");
+	match06_2 = document.getElementById("match06_2");
+	match06_3 = document.getElementById("match06_3");
+	match06_4 = document.getElementById("match06_4");
+	match06_5 = document.getElementById("match06_5");
+	match06_6 = document.getElementById("match06_6");
+	match06_7 = document.getElementById("match06_7");
+	
+	sum = 0;
+		
+	match06_1.setAttribute("value",data["match"][30]["matching_rate"]);
+	match06_2.setAttribute("value",data["match"][31]["matching_rate"]);
+	match06_3.setAttribute("value",data["match"][32]["matching_rate"]);
+	match06_4.setAttribute("value",data["match"][33]["matching_rate"]);
+	match06_5.setAttribute("value",data["match"][34]["matching_rate"]);
+	match06_6.setAttribute("value",data["match"][35]["matching_rate"]);
+	
+	sum =data["match"][30]["matching_rate"] +data["match"][31]["matching_rate"]+data["match"][32]["matching_rate"]
+	+data["match"][33]["matching_rate"]+data["match"][34]["matching_rate"]+data["match"][35]["matching_rate"];
+	
+	match06_7.setAttribute("value",sum);
+	
+	//맞춤취업
+	match07_1 = document.getElementById("match07_1");
+	match07_2 = document.getElementById("match07_2");
+	match07_3 = document.getElementById("match07_3");
+	match07_4 = document.getElementById("match07_4");
+	match07_5 = document.getElementById("match07_5");
+	match07_6 = document.getElementById("match07_6");
+	match07_7 = document.getElementById("match07_7");
+	
+	sum = 0;
+		
+	match07_1.setAttribute("value",data["match"][36]["matching_rate"]);
+	match07_2.setAttribute("value",data["match"][37]["matching_rate"]);
+	match07_3.setAttribute("value",data["match"][38]["matching_rate"]);
+	match07_4.setAttribute("value",data["match"][39]["matching_rate"]);
+	match07_5.setAttribute("value",data["match"][40]["matching_rate"]);
+	match07_6.setAttribute("value",data["match"][41]["matching_rate"]);
+	
+	sum =data["match"][36]["matching_rate"] +data["match"][37]["matching_rate"]+data["match"][38]["matching_rate"]
+	+data["match"][39]["matching_rate"]+data["match"][40]["matching_rate"]+data["match"][41]["matching_rate"];
+	
+	match07_7.setAttribute("value",sum);
+	
+	//구직활동
+	match08_1 = document.getElementById("match08_1");
+	match08_2 = document.getElementById("match08_2");
+	match08_3 = document.getElementById("match08_3");
+	match08_4 = document.getElementById("match08_4");
+	match08_5 = document.getElementById("match08_5");
+	match08_6 = document.getElementById("match08_6");
+	match08_7 = document.getElementById("match08_7");
+	
+	sum = 0;
+		
+	match08_1.setAttribute("value",data["match"][42]["matching_rate"]);
+	match08_2.setAttribute("value",data["match"][43]["matching_rate"]);
+	match08_3.setAttribute("value",data["match"][44]["matching_rate"]);
+	match08_4.setAttribute("value",data["match"][45]["matching_rate"]);
+	match08_5.setAttribute("value",data["match"][46]["matching_rate"]);
+	match08_6.setAttribute("value",data["match"][47]["matching_rate"]);
+	
+	sum =data["match"][42]["matching_rate"] +data["match"][43]["matching_rate"]+data["match"][44]["matching_rate"]
+	+data["match"][45]["matching_rate"]+data["match"][46]["matching_rate"]+data["match"][47]["matching_rate"];
+	
+	match08_7.setAttribute("value",sum);
+	
+	
 }
+
+
+
+
+
+
+
+
+
+
 
 
 function WeightUdate() {
 
 	const weigttest = document.getElementsByName("setweight");
+	
+	
+	
 	let weigt_1 = weigttest[0].value;
 	let weigt_2 = weigttest[1].value;
 	let weigt_3 = weigttest[2].value;
