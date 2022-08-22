@@ -6,10 +6,10 @@ const request = new XMLHttpRequest();
 
 
 window.addEventListener('load', function() {
-  searchPrograms();
+  initAdminPage();
 });
 
-function searchPrograms() {
+function initAdminPage() {
 	request.open("Get", "./AdminMode", true);
 	request.onreadystatechange = searchProcess;
 	request.send(null);
@@ -166,7 +166,7 @@ function createWeight(data) {
 	sum =data["match"][12]["matching_rate"] +data["match"][13]["matching_rate"]+data["match"][14]["matching_rate"]+data["match"][15]["matching_rate"]+data["match"][16]["matching_rate"]+data["match"][17]["matching_rate"];
 	
 	
-	//진로설계
+	//진로설계 초기화
 	match03_7.setAttribute("value",sum);
 	
 	match04_1 = document.getElementById("match04_1");
@@ -191,7 +191,7 @@ function createWeight(data) {
 	match04_7.setAttribute("value",sum);
 	
 	
-	//진로설계
+	//진로설계 초기화
 	match03_7.setAttribute("value",sum);
 	
 	match05_1 = document.getElementById("match05_1");
@@ -216,7 +216,7 @@ function createWeight(data) {
 	
 	match05_7.setAttribute("value",sum);
 	
-	//실무역량
+	//실무역량 초기화
 	match06_1 = document.getElementById("match06_1");
 	match06_2 = document.getElementById("match06_2");
 	match06_3 = document.getElementById("match06_3");
@@ -239,7 +239,7 @@ function createWeight(data) {
 	
 	match06_7.setAttribute("value",sum);
 	
-	//맞춤취업
+	//맞춤취업 초기화
 	match07_1 = document.getElementById("match07_1");
 	match07_2 = document.getElementById("match07_2");
 	match07_3 = document.getElementById("match07_3");
@@ -262,7 +262,7 @@ function createWeight(data) {
 	
 	match07_7.setAttribute("value",sum);
 	
-	//구직활동
+	//구직활동 초기화
 	match08_1 = document.getElementById("match08_1");
 	match08_2 = document.getElementById("match08_2");
 	match08_3 = document.getElementById("match08_3");
@@ -285,6 +285,36 @@ function createWeight(data) {
 	
 	match08_7.setAttribute("value",sum);
 	
+	let MaxLevelScore = document.getElementsByName("MaxLevelScore");
+	let levelSet_Hight_Max = document.getElementsByName("Hight_Max");
+	let levelSet_Hight_Min = document.getElementsByName("Hight_Min");
+	let levelSet_Normal_Max = document.getElementsByName("Normal_Max");
+	let levelSet_Normal_Min = document.getElementsByName("Normal_Min");
+	let levelSet_Low_Max = document.getElementsByName("Low_Max");
+	let levelSet_Low_Min = document.getElementsByName("Low_Min");
+	
+	for(let i = 0; i<data["leve"].length; i++){
+		MaxLevelScore[i].setAttribute("value",data["leve"][i]["high_max"]);
+	}
+	
+	for(let i = 0; i<data["leve"].length; i++){
+		levelSet_Hight_Max[i].setAttribute("value",data["leve"][i]["high_max"]);
+	}
+	for(let i = 0; i<data["leve"].length; i++){
+		levelSet_Hight_Min[i].setAttribute("value",data["leve"][i]["high_min"]);
+	}
+	for(let i = 0; i<data["leve"].length; i++){
+		levelSet_Normal_Max[i].setAttribute("value",data["leve"][i]["normal_max"]);
+	}
+	for(let i = 0; i<data["leve"].length; i++){
+		levelSet_Normal_Min[i].setAttribute("value",data["leve"][i]["normal_min"]);
+	}
+	for(let i = 0; i<data["leve"].length; i++){
+		levelSet_Low_Max[i].setAttribute("value",data["leve"][i]["low_max"]);
+	}
+	for(let i = 0; i<data["leve"].length; i++){
+		levelSet_Low_Min[i].setAttribute("value",data["leve"][i]["low_min"]);
+	}
 	
 }
 
