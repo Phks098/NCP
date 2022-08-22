@@ -368,8 +368,8 @@ request.setCharacterEncoding("utf-8");
 	<jsp:include page="LoginPopup.jsp" />
 	<script src="js/SitemapPopup.js"></script>
 	<script src="js/LoginPopup.js"></script>
+	<script src="js/Admin_mode.js"></script>
 	<script src="js/professor_weight.js"></script>
-	<script src="js/Matching_Criteria.js"></script>
 
 
 </body>
