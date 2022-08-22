@@ -34,7 +34,7 @@ public class Match extends HttpServlet {
 	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		AdminMode_DAO dao = new AdminMode_DAO();
-		String[] setMatch = request.getParameterValues("setMatch");
+		String[] setMatch = request.getParameterValues("setMatch[]");
 		
 		for(int i =0; i<setMatch.length; i++) {
 			System.out.println(setMatch[i]);
