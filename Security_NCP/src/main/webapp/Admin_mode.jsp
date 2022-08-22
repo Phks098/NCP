@@ -46,8 +46,8 @@ request.setCharacterEncoding("utf-8");
 					<table>
 
 						<colgroup>
-							<col style="width: 25%;">
-							<col style="width: 25%;">
+							<col style="width: %;">
+							<col style="width: %;">
 							<col style="width: 50%;">
 						</colgroup>
 
@@ -231,19 +231,136 @@ request.setCharacterEncoding("utf-8");
 							value="저장">
 					</div>
 					<br> <br>
+					
+					<div class="info_text_area">
+					<img
+						src="https://semsplus.seowon.ac.kr/contents/images/client/sub/icon_tit_lg.png" />
+					<h3 class="info_text">준비수준 기준 설정</h3>
+				</div>
+				<div>
+				<table>
+							<tbody>
+								<tr>
+									<th colspan="8">우리대학 진로취업 역량별 준비수준 진단 기준 설정</th>
+								</tr>
+								<tr>
 
+									<th rowspan="2">진로취업역량<br>(단계)
+									</th>
+									<th rowspan="2">최대점수</th>
+									<th colspan="2">높음</th>
+
+									<th colspan="2">보통</th>
+
+									<th colspan="2">낮음</th>
+
+								</tr>
+								<tr>
+									<th>최대</th>
+									<th>최소</th>
+									<th>최대</th>
+									<th>최소</th>
+									<th>최대</th>
+									<th>최소</th>
+								</tr>
+								<tr>
+									<th>자기이해</th>
+									<td><input type="number" class="matchText" name="MaxLevelScore" readonly="readonly"></td>
+									<td><input type="number" class="matchText" name="Hight_Max"></td>
+									<td><input type="number" class="matchText" name="Hight_Min"></td>
+									<td><input type="number" class="matchText" name="Normal_Max"></td>
+									<td><input type="number" class="matchText" name="Normal_Min"></td>
+									<td><input type="number" class="matchText" name="Low_Max"></td>
+									<td><input type="number" class="matchText" name="Low_Min"></td>
+								</tr>
+								
+								<tr>
+									<th>진로탐색</th>
+									<td><input type="number" class="matchText" name="MaxLevelScore" readonly="readonly"></td>
+									<td><input type="number" class="matchText" name="Hight_Max"></td>
+									<td><input type="number" class="matchText" name="Hight_Min"></td>
+									<td><input type="number" class="matchText" name="Normal_Max"></td>
+									<td><input type="number" class="matchText" name="Normal_Min"></td>
+									<td><input type="number" class="matchText" name="Low_Max"></td>
+									<td><input type="number" class="matchText" name="Low_Min"></td>
+									
+								</tr>
+
+								<tr>
+									<th>진로결정</th>
+									<td><input type="number" class="matchText" name="MaxLevelScore" readonly="readonly"></td>
+									<td><input type="number" class="matchText" name="Hight_Max"></td>
+									<td><input type="number" class="matchText" name="Hight_Min"></td>
+									<td><input type="number" class="matchText" name="Normal_Max"></td>
+									<td><input type="number" class="matchText" name="Normal_Min"></td>
+									<td><input type="number" class="matchText" name="Low_Max"></td>
+									<td><input type="number" class="matchText" name="Low_Min"></td>
+									
+								</tr>
+								<tr>
+									<th>진로설계</th>
+									<td><input type="number" class="matchText" name="MaxLevelScore" readonly="readonly"></td>
+									<td><input type="number" class="matchText" name="Hight_Max"></td>
+									<td><input type="number" class="matchText" name="Hight_Min"></td>
+									<td><input type="number" class="matchText" name="Normal_Max"></td>
+									<td><input type="number" class="matchText" name="Normal_Min"></td>
+									<td><input type="number" class="matchText" name="Low_Max"></td>
+									<td><input type="number" class="matchText" name="Low_Min"></td>
+								</tr>
+
+								<tr>
+									<th>경력개발</th>
+									<td><input type="number" class="matchText" name="MaxLevelScore" readonly="readonly"></td>
+									<td><input type="number" class="matchText" name="Hight_Max"></td>
+									<td><input type="number" class="matchText" name="Hight_Min"></td>
+									<td><input type="number" class="matchText" name="Normal_Max"></td>
+									<td><input type="number" class="matchText" name="Normal_Min"></td>
+									<td><input type="number" class="matchText" name="Low_Max"></td>
+									<td><input type="number" class="matchText" name="Low_Min"></td>
+								</tr>
+
+								<tr>
+									<th>실무역량</th>
+									<td><input type="number" class="matchText" name="MaxLevelScore" readonly="readonly"></td>
+									<td><input type="number" class="matchText" name="Hight_Max"></td>
+									<td><input type="number" class="matchText" name="Hight_Min"></td>
+									<td><input type="number" class="matchText" name="Normal_Max"></td>
+									<td><input type="number" class="matchText" name="Normal_Min"></td>
+									<td><input type="number" class="matchText" name="Low_Max"></td>
+									<td><input type="number" class="matchText" name="Low_Min"></td>
+								</tr>
+								<tr>
+									<th>맞춤취업</th>
+									<td><input type="number" class="matchText" name="MaxLevelScore" readonly="readonly"></td>
+									<td><input type="number" class="matchText" name="Hight_Max"></td>
+									<td><input type="number" class="matchText" name="Hight_Min"></td>
+									<td><input type="number" class="matchText" name="Normal_Max"></td>
+									<td><input type="number" class="matchText" name="Normal_Min"></td>
+									<td><input type="number" class="matchText" name="Low_Max"></td>
+									<td><input type="number" class="matchText" name="Low_Min"></td>
+								</tr>
+
+								<tr>
+									<th>구직활동</th>
+									<td><input type="number" class="matchText" name="MaxLevelScore" readonly="readonly"></td>
+									<td><input type="number" class="matchText" name="Hight_Max"></td>
+									<td><input type="number" class="matchText" name="Hight_Min"></td>
+									<td><input type="number" class="matchText" name="Normal_Max"></td>
+									<td><input type="number" class="matchText" name="Normal_Min"></td>
+									<td><input type="number" class="matchText" name="Low_Max"></td>
+									<td><input type="number" class="matchText" name="Low_Min"></td>
+								</tr>
+
+							</tbody>
+						</table>
+				</div>
+				<div>
+						<input class="saveBtn" type="button" onclick="text()"
+							value="저장">
+					</div>
 					
 
 				</div>
-
-				<div class="info_text_area">
-					<img
-						src="https://semsplus.seowon.ac.kr/contents/images/client/sub/icon_tit_lg.png" />
-					<h3 class="info_text">준비수준 진단 기준설정</h3>
-				</div>
-				<div id="leveArea"></div>
-
-
 			</div>
 		</div>
 	</main>
