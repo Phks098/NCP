@@ -1,6 +1,4 @@
 
-const requestWeight = new XMLHttpRequest();
-
 function WeightUdate() {
 
 	const weigttest = document.getElementsByName("setweight");
@@ -17,17 +15,17 @@ function WeightUdate() {
 
 	console.log(weigttest[0].value);
 
-	requestWeight.open("Put", "./Professor_Weight" + parameter, true);
-	requestWeight.onreadystatechange = setWeightPage;
-	requestWeight.send(null);
+	request.open("Put", "./Professor_Weight" + parameter, true);
+	request.onreadystatechange = setWeightPage;
+	request.send(null);
 
 
 }
 
 function setWeightPage(){
-	if (requestWeight.readyState == 4 && requestWeight.status == 200) {
+	if (request.readyState == 4 && request.status == 200) {
 		
-		let resultWeight = requestWeight.responseText;
+		let resultWeight = request.responseText;
 		resultWeight = JSON.parse(resultWeight);
 		
 		console.log("가중치값 비동기 실행");

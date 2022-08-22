@@ -160,7 +160,7 @@ request.setCharacterEncoding("utf-8");
 							<tr>
 								<th>자기이해</th>
 								<c:forEach begin="1" end="7" varStatus="status">
-									<td><input class="matchText" type="number"
+									<td><input class="matchText" type="number" name="matchGet"
 										id="match01_${status.index}">%</td>
 								</c:forEach>
 
@@ -169,7 +169,7 @@ request.setCharacterEncoding("utf-8");
 							<tr>
 								<th>진로탐색</th>
 								<c:forEach begin="1" end="7" varStatus="status">
-									<td><input class="matchText" type="number"
+									<td><input class="matchText" type="number" name="matchGet"
 										id="match02_${status.index}"> %</td>
 								</c:forEach>
 
@@ -178,7 +178,7 @@ request.setCharacterEncoding("utf-8");
 							<tr>
 								<th>진로결정</th>
 								<c:forEach begin="1" end="7" varStatus="status">
-									<td><input class="matchText" type="number"
+									<td><input class="matchText" type="number" name="matchGet"
 										id="match03_${status.index}"> %</td>
 								</c:forEach>
 							</tr>
@@ -186,7 +186,7 @@ request.setCharacterEncoding("utf-8");
 							<tr>
 								<th>진로설계</th>
 								<c:forEach begin="1" end="7" varStatus="status">
-									<td><input class="matchText" type="number"
+									<td><input class="matchText" type="number" name="matchGet"
 										id="match04_${status.index}"> %</td>
 								</c:forEach>
 							</tr>
@@ -194,7 +194,7 @@ request.setCharacterEncoding("utf-8");
 							<tr>
 								<th>경력개발</th>
 								<c:forEach begin="1" end="7" varStatus="status">
-									<td><input class="matchText" type="number"
+									<td><input class="matchText" type="number" name="matchGet"
 										id="match05_${status.index}"> %</td>
 								</c:forEach>
 							</tr>
@@ -202,7 +202,7 @@ request.setCharacterEncoding("utf-8");
 							<tr>
 								<th>실무역량</th>
 								<c:forEach begin="1" end="7" varStatus="status">
-									<td><input class="matchText" type="number"
+									<td><input class="matchText" type="number" name="matchGet"
 										id="match06_${status.index}"> %</td>
 								</c:forEach>
 							</tr>
@@ -210,7 +210,7 @@ request.setCharacterEncoding("utf-8");
 							<tr>
 								<th>맞춤취업</th>
 								<c:forEach begin="1" end="7" varStatus="status">
-									<td><input class="matchText" type="number"
+									<td><input class="matchText" type="number" name="matchGet"
 										id="match07_${status.index}"> %</td>
 								</c:forEach>
 							</tr>
@@ -218,7 +218,7 @@ request.setCharacterEncoding("utf-8");
 							<tr>
 								<th>구직활동</th>
 								<c:forEach begin="1" end="7" varStatus="status">
-									<td><input class="matchText" type="number"
+									<td><input class="matchText" type="number" name="matchGet"
 										id="match08_${status.index}"> %</td>
 								</c:forEach>
 							</tr>
@@ -227,18 +227,18 @@ request.setCharacterEncoding("utf-8");
 						</tbody>
 					</table>
 					<div>
-						<input class="saveBtn" type="button" onclick="WeightUdate()"
+						<input class="saveBtn" type="button" onclick="MatchUpdate()"
 							value="저장">
 					</div>
 					<br> <br>
-					
+
 					<div class="info_text_area">
-					<img
-						src="https://semsplus.seowon.ac.kr/contents/images/client/sub/icon_tit_lg.png" />
-					<h3 class="info_text">준비수준 기준 설정</h3>
-				</div>
-				<div>
-				<table>
+						<img
+							src="https://semsplus.seowon.ac.kr/contents/images/client/sub/icon_tit_lg.png" />
+						<h3 class="info_text">준비수준 기준 설정</h3>
+					</div>
+					<div>
+						<table>
 							<tbody>
 								<tr>
 									<th colspan="8">우리대학 진로취업 역량별 준비수준 진단 기준 설정</th>
@@ -265,100 +265,139 @@ request.setCharacterEncoding("utf-8");
 								</tr>
 								<tr>
 									<th>자기이해</th>
-									<td><input type="number" class="matchText" name="MaxLevelScore" readonly="readonly"></td>
-									<td><input type="number" class="matchText" name="Hight_Max"></td>
-									<td><input type="number" class="matchText" name="Hight_Min"></td>
-									<td><input type="number" class="matchText" name="Normal_Max"></td>
-									<td><input type="number" class="matchText" name="Normal_Min"></td>
+									<td><input type="number" class="matchText"
+										name="MaxLevelScore" readonly="readonly"></td>
+									<td><input type="number" class="matchText"
+										name="Hight_Max"></td>
+									<td><input type="number" class="matchText"
+										name="Hight_Min"></td>
+									<td><input type="number" class="matchText"
+										name="Normal_Max"></td>
+									<td><input type="number" class="matchText"
+										name="Normal_Min"></td>
 									<td><input type="number" class="matchText" name="Low_Max"></td>
 									<td><input type="number" class="matchText" name="Low_Min"></td>
 								</tr>
-								
+
 								<tr>
 									<th>진로탐색</th>
-									<td><input type="number" class="matchText" name="MaxLevelScore" readonly="readonly"></td>
-									<td><input type="number" class="matchText" name="Hight_Max"></td>
-									<td><input type="number" class="matchText" name="Hight_Min"></td>
-									<td><input type="number" class="matchText" name="Normal_Max"></td>
-									<td><input type="number" class="matchText" name="Normal_Min"></td>
+									<td><input type="number" class="matchText"
+										name="MaxLevelScore" readonly="readonly"></td>
+									<td><input type="number" class="matchText"
+										name="Hight_Max"></td>
+									<td><input type="number" class="matchText"
+										name="Hight_Min"></td>
+									<td><input type="number" class="matchText"
+										name="Normal_Max"></td>
+									<td><input type="number" class="matchText"
+										name="Normal_Min"></td>
 									<td><input type="number" class="matchText" name="Low_Max"></td>
 									<td><input type="number" class="matchText" name="Low_Min"></td>
-									
+
 								</tr>
 
 								<tr>
 									<th>진로결정</th>
-									<td><input type="number" class="matchText" name="MaxLevelScore" readonly="readonly"></td>
-									<td><input type="number" class="matchText" name="Hight_Max"></td>
-									<td><input type="number" class="matchText" name="Hight_Min"></td>
-									<td><input type="number" class="matchText" name="Normal_Max"></td>
-									<td><input type="number" class="matchText" name="Normal_Min"></td>
+									<td><input type="number" class="matchText"
+										name="MaxLevelScore" readonly="readonly"></td>
+									<td><input type="number" class="matchText"
+										name="Hight_Max"></td>
+									<td><input type="number" class="matchText"
+										name="Hight_Min"></td>
+									<td><input type="number" class="matchText"
+										name="Normal_Max"></td>
+									<td><input type="number" class="matchText"
+										name="Normal_Min"></td>
 									<td><input type="number" class="matchText" name="Low_Max"></td>
 									<td><input type="number" class="matchText" name="Low_Min"></td>
-									
+
 								</tr>
 								<tr>
 									<th>진로설계</th>
-									<td><input type="number" class="matchText" name="MaxLevelScore" readonly="readonly"></td>
-									<td><input type="number" class="matchText" name="Hight_Max"></td>
-									<td><input type="number" class="matchText" name="Hight_Min"></td>
-									<td><input type="number" class="matchText" name="Normal_Max"></td>
-									<td><input type="number" class="matchText" name="Normal_Min"></td>
+									<td><input type="number" class="matchText"
+										name="MaxLevelScore" readonly="readonly"></td>
+									<td><input type="number" class="matchText"
+										name="Hight_Max"></td>
+									<td><input type="number" class="matchText"
+										name="Hight_Min"></td>
+									<td><input type="number" class="matchText"
+										name="Normal_Max"></td>
+									<td><input type="number" class="matchText"
+										name="Normal_Min"></td>
 									<td><input type="number" class="matchText" name="Low_Max"></td>
 									<td><input type="number" class="matchText" name="Low_Min"></td>
 								</tr>
 
 								<tr>
 									<th>경력개발</th>
-									<td><input type="number" class="matchText" name="MaxLevelScore" readonly="readonly"></td>
-									<td><input type="number" class="matchText" name="Hight_Max"></td>
-									<td><input type="number" class="matchText" name="Hight_Min"></td>
-									<td><input type="number" class="matchText" name="Normal_Max"></td>
-									<td><input type="number" class="matchText" name="Normal_Min"></td>
+									<td><input type="number" class="matchText"
+										name="MaxLevelScore" readonly="readonly"></td>
+									<td><input type="number" class="matchText"
+										name="Hight_Max"></td>
+									<td><input type="number" class="matchText"
+										name="Hight_Min"></td>
+									<td><input type="number" class="matchText"
+										name="Normal_Max"></td>
+									<td><input type="number" class="matchText"
+										name="Normal_Min"></td>
 									<td><input type="number" class="matchText" name="Low_Max"></td>
 									<td><input type="number" class="matchText" name="Low_Min"></td>
 								</tr>
 
 								<tr>
 									<th>실무역량</th>
-									<td><input type="number" class="matchText" name="MaxLevelScore" readonly="readonly"></td>
-									<td><input type="number" class="matchText" name="Hight_Max"></td>
-									<td><input type="number" class="matchText" name="Hight_Min"></td>
-									<td><input type="number" class="matchText" name="Normal_Max"></td>
-									<td><input type="number" class="matchText" name="Normal_Min"></td>
+									<td><input type="number" class="matchText"
+										name="MaxLevelScore" readonly="readonly"></td>
+									<td><input type="number" class="matchText"
+										name="Hight_Max"></td>
+									<td><input type="number" class="matchText"
+										name="Hight_Min"></td>
+									<td><input type="number" class="matchText"
+										name="Normal_Max"></td>
+									<td><input type="number" class="matchText"
+										name="Normal_Min"></td>
 									<td><input type="number" class="matchText" name="Low_Max"></td>
 									<td><input type="number" class="matchText" name="Low_Min"></td>
 								</tr>
 								<tr>
 									<th>맞춤취업</th>
-									<td><input type="number" class="matchText" name="MaxLevelScore" readonly="readonly"></td>
-									<td><input type="number" class="matchText" name="Hight_Max"></td>
-									<td><input type="number" class="matchText" name="Hight_Min"></td>
-									<td><input type="number" class="matchText" name="Normal_Max"></td>
-									<td><input type="number" class="matchText" name="Normal_Min"></td>
+									<td><input type="number" class="matchText"
+										name="MaxLevelScore" readonly="readonly"></td>
+									<td><input type="number" class="matchText"
+										name="Hight_Max"></td>
+									<td><input type="number" class="matchText"
+										name="Hight_Min"></td>
+									<td><input type="number" class="matchText"
+										name="Normal_Max"></td>
+									<td><input type="number" class="matchText"
+										name="Normal_Min"></td>
 									<td><input type="number" class="matchText" name="Low_Max"></td>
 									<td><input type="number" class="matchText" name="Low_Min"></td>
 								</tr>
 
 								<tr>
 									<th>구직활동</th>
-									<td><input type="number" class="matchText" name="MaxLevelScore" readonly="readonly"></td>
-									<td><input type="number" class="matchText" name="Hight_Max"></td>
-									<td><input type="number" class="matchText" name="Hight_Min"></td>
-									<td><input type="number" class="matchText" name="Normal_Max"></td>
-									<td><input type="number" class="matchText" name="Normal_Min"></td>
+									<td><input type="number" class="matchText"
+										name="MaxLevelScore" readonly="readonly"></td>
+									<td><input type="number" class="matchText"
+										name="Hight_Max"></td>
+									<td><input type="number" class="matchText"
+										name="Hight_Min"></td>
+									<td><input type="number" class="matchText"
+										name="Normal_Max"></td>
+									<td><input type="number" class="matchText"
+										name="Normal_Min"></td>
 									<td><input type="number" class="matchText" name="Low_Max"></td>
 									<td><input type="number" class="matchText" name="Low_Min"></td>
 								</tr>
 
 							</tbody>
 						</table>
-				</div>
-				<div>
-						<input class="saveBtn" type="button" onclick="text()"
-							value="저장">
 					</div>
-					
+					<div>
+						<input class="saveBtn" type="button" onclick="MatchUpdate()" value="저장">
+					</div>
+
 
 				</div>
 			</div>
@@ -370,7 +409,7 @@ request.setCharacterEncoding("utf-8");
 	<script src="js/LoginPopup.js"></script>
 	<script src="js/Admin_mode.js"></script>
 	<script src="js/professor_weight.js"></script>
-
+	<script src="js/match.js"></script>
 
 </body>
 </html>

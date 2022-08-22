@@ -63,13 +63,7 @@ function createAdmin(data) {
 	td03.innerText= data["weight"][2]["weight"];
 	td02.innerText= data["weight"][1]["weight"];
 	td01.innerText= data["weight"][0]["weight"];
-	
-	
-	
-	
-	
-	
-	
+
 	// 매칭 비율 설정
 	//자기이해
 	match01_1 = document.getElementById("match01_1");
@@ -92,8 +86,6 @@ function createAdmin(data) {
 	sum =data["match"][0]["matching_rate"] +data["match"][1]["matching_rate"]+data["match"][2]["matching_rate"]+data["match"][3]["matching_rate"]+data["match"][4]["matching_rate"]+data["match"][5]["matching_rate"];
 	
 	match01_7.setAttribute("value",sum);
-	
-	
 	
 	match02_1 = document.getElementById("match02_1");
 	match02_2 = document.getElementById("match02_2");
@@ -284,6 +276,7 @@ function createAdmin(data) {
 	
 	match08_7.setAttribute("value",sum);
 	
+	
 	let MaxLevelScore = document.getElementsByName("MaxLevelScore");
 	let levelSet_Hight_Max = document.getElementsByName("Hight_Max");
 	let levelSet_Hight_Min = document.getElementsByName("Hight_Min");
@@ -291,6 +284,7 @@ function createAdmin(data) {
 	let levelSet_Normal_Min = document.getElementsByName("Normal_Min");
 	let levelSet_Low_Max = document.getElementsByName("Low_Max");
 	let levelSet_Low_Min = document.getElementsByName("Low_Min");
+	
 	
 	for(let i = 0; i<data["leve"].length; i++){
 		MaxLevelScore[i].setAttribute("value",data["leve"][i]["high_max"]);
@@ -314,6 +308,7 @@ function createAdmin(data) {
 	for(let i = 0; i<data["leve"].length; i++){
 		levelSet_Low_Min[i].setAttribute("value",data["leve"][i]["low_min"]);
 	}
+	
 	
 }
 

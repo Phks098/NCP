@@ -53,10 +53,7 @@ public class Professor_Weight extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		Admin_Set_DAO dao = new Admin_Set_DAO();
-		request.setCharacterEncoding("utf-8");
-		response.setContentType("text/html;charset=utf-8");
-		System.out.println("Post 요청 받음");
+	
 
 	}
 
