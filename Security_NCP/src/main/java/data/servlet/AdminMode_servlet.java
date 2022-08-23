@@ -46,8 +46,7 @@ public class AdminMode_servlet extends HttpServlet {
 		Gson gson = new Gson();
 		String jsonData = gson.toJson(data);
 		response.getWriter().write(jsonData);
-		
-
+		request.getHeader(jsonData);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
