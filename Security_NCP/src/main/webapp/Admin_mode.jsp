@@ -410,7 +410,7 @@ request.setCharacterEncoding("utf-8");
 						</table>
 					</div>
 					<div>
-						<input class="saveBtn" type="button" onclick="MatchUpdate()" value="저장">
+						<input class="saveBtn" type="button" onclick="LevelUpdate()" value="저장">
 					</div>
 
 
@@ -425,6 +425,7 @@ request.setCharacterEncoding("utf-8");
 	<script src="js/Admin_mode.js"></script>
 	<script src="js/professor_weight.js"></script>
 	<script src="js/match.js"></script>
+	<script src="js/Level.js"></script>
 
 </body>
 </html>
