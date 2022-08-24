@@ -159,68 +159,83 @@ request.setCharacterEncoding("utf-8");
 
 							<tr>
 								<th>자기이해</th>
-								<c:forEach begin="1" end="7" varStatus="status">
+								<c:forEach begin="1" end="6" varStatus="status">
 									<td><input class="matchText" type="number" name="matchGet"
 										id="match01_${status.index}">%</td>
 								</c:forEach>
+								<td><input class="matchText" type="number"  name="matchSum"
+									readonly="readonly"	id="match01_7">%</td>
 
 							</tr>
 
 							<tr>
 								<th>진로탐색</th>
-								<c:forEach begin="1" end="7" varStatus="status">
+								<c:forEach begin="1" end="6" varStatus="status">
 									<td><input class="matchText" type="number" name="matchGet"
 										id="match02_${status.index}"> %</td>
 								</c:forEach>
-
+								<td><input class="matchText" type="number"  name="matchSum"
+									readonly="readonly"	id="match02_7">%</td>
 							</tr>
 
 							<tr>
 								<th>진로결정</th>
-								<c:forEach begin="1" end="7" varStatus="status">
+								<c:forEach begin="1" end="6" varStatus="status">
 									<td><input class="matchText" type="number" name="matchGet"
 										id="match03_${status.index}"> %</td>
 								</c:forEach>
+								<td><input class="matchText" type="number"  name="matchSum"
+									readonly="readonly"	id="match03_7">%</td>
 							</tr>
 
 							<tr>
 								<th>진로설계</th>
-								<c:forEach begin="1" end="7" varStatus="status">
+								<c:forEach begin="1" end="6" varStatus="status">
 									<td><input class="matchText" type="number" name="matchGet"
 										id="match04_${status.index}"> %</td>
 								</c:forEach>
+								<td><input class="matchText" type="number"  name="matchSum"
+									readonly="readonly"	id="match04_7">%</td>
 							</tr>
 
 							<tr>
 								<th>경력개발</th>
-								<c:forEach begin="1" end="7" varStatus="status">
+								<c:forEach begin="1" end="6" varStatus="status">
 									<td><input class="matchText" type="number" name="matchGet"
 										id="match05_${status.index}"> %</td>
 								</c:forEach>
+								<td><input class="matchText" type="number"  name="matchSum"
+									readonly="readonly"	id="match05_7">%</td>
 							</tr>
 
 							<tr>
 								<th>실무역량</th>
-								<c:forEach begin="1" end="7" varStatus="status">
+								<c:forEach begin="1" end="6" varStatus="status">
 									<td><input class="matchText" type="number" name="matchGet"
 										id="match06_${status.index}"> %</td>
 								</c:forEach>
+								<td><input class="matchText" type="number"  name="matchSum"
+									readonly="readonly"	id="match06_7">%</td>
 							</tr>
 
 							<tr>
 								<th>맞춤취업</th>
-								<c:forEach begin="1" end="7" varStatus="status">
+								<c:forEach begin="1" end="6" varStatus="status">
 									<td><input class="matchText" type="number" name="matchGet"
 										id="match07_${status.index}"> %</td>
 								</c:forEach>
+								<td><input class="matchText" type="number"  name="matchSum"
+									readonly="readonly"	id="match07_7">%</td>
 							</tr>
 
 							<tr>
 								<th>구직활동</th>
-								<c:forEach begin="1" end="7" varStatus="status">
+								<c:forEach begin="1" end="6" varStatus="status">
 									<td><input class="matchText" type="number" name="matchGet"
 										id="match08_${status.index}"> %</td>
 								</c:forEach>
+								<td><input class="matchText" type="number" name="matchSum"
+									readonly="readonly"	id="match08_7">%</td>
 							</tr>
 
 

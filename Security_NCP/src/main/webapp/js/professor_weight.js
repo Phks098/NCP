@@ -38,8 +38,7 @@ function setWeightPage(){
 }
 
 function setWeightValue(data){
-	//data[4] = 5점 가중치값 
-	//data[4] = 5점 가중치값 
+	
 	let td05 = document.getElementById("td05");
 	let td04 = document.getElementById("td04");
 	let td03 = document.getElementById("td03");

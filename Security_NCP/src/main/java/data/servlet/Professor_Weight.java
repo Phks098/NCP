@@ -53,7 +53,6 @@ public class Professor_Weight extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-	
 
 	}
 
@@ -65,18 +64,18 @@ public class Professor_Weight extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		response.setContentType("text/html;charset=utf-8");
 		System.out.println("Put 요청 받음");
-		
+
 		String weigt1 = request.getParameter("weigt_1");
-		String weigt2= request.getParameter("weigt_2");
+		String weigt2 = request.getParameter("weigt_2");
 		String weigt3 = request.getParameter("weigt_3");
 		String weigt4 = request.getParameter("weigt_4");
 		String weigt5 = request.getParameter("weigt_5");
-		
-		dao.Update_Professor_weight_VO(weigt1,5);
-		dao.Update_Professor_weight_VO(weigt2,4);
-		dao.Update_Professor_weight_VO(weigt3,3);
-		dao.Update_Professor_weight_VO(weigt4,2);
-		dao.Update_Professor_weight_VO(weigt5,1);
+
+		dao.Update_Professor_weight_VO(weigt1, 5);
+		dao.Update_Professor_weight_VO(weigt2, 4);
+		dao.Update_Professor_weight_VO(weigt3, 3);
+		dao.Update_Professor_weight_VO(weigt4, 2);
+		dao.Update_Professor_weight_VO(weigt5, 1);
 
 		Gson gson = new Gson();
 
