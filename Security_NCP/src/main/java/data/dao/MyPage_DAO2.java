@@ -85,7 +85,6 @@ public class MyPage_DAO2 {
 	
 	
 	
-	// ������ü���˻� ���� ������ ������ �ش��л��� �˻����� �ʱ�ȭ ���ش�.
 	public void insert_Education_Identity_Test(ArrayList<String> test_result, String sutudent) {
 
 		sqlMapper = getInstance();
@@ -100,8 +99,7 @@ public class MyPage_DAO2 {
 		session.commit();
 		
 		
-//		Education_identity_test_score_VO
-		//������ �Է��ϱ�����
+
 		List<Education_identity_test_VO> list = new ArrayList<>();
 		
 		for(int i = 1; i<8; i++) {
@@ -139,13 +137,10 @@ public class MyPage_DAO2 {
 		
 	
 		session.delete("mapper.mypage.delete_Career_Test", student);
-		session.commit();
 		session.delete("mapper.mypage.delete_Capability_Matching_score", student);
-		session.commit();
 		session.delete("mapper.mypage.delete_Integration_Score", student);
-		session.commit();
 		session.delete("mapper.mypage.delete_Preparation_Level", student);
-		session.commit();
+
 		
 		List<Career_test_VO> Career_test_VO_list = new ArrayList<>();
 		
@@ -183,13 +178,13 @@ public class MyPage_DAO2 {
 		session.insert("mapper.mypage.insert_Career_test", map);
 		session.commit();
 		
-		Integration_Score integration_Score = new Integration_Score(); // ��Ī ��� Integration_Score ���� �ٽ� �ۼ��Ѵ�
+		Integration_Score integration_Score = new Integration_Score();
 		Preparation_Level preparation_Level = new Preparation_Level();
 
 		
-		integration_Score.InsertInto_Integration_Score(student); // �������� ����
-		preparation_Level.Leve(student);// �غ���� ��� ���� �� ��Ī ��� ���
-		System.out.println("����");
+		integration_Score.InsertInto_Integration_Score(student);
+		preparation_Level.Leve(student);
+		System.out.println("준비수준 입력중");
 	}
 
 	

@@ -48,7 +48,7 @@
 				join major_information as major  on s.major_number = major.code 
 				 join student_grade as grade on grade.code = s.grade 
 				 join student_sex as sex on sex.code = s.sex 
-				 join professor as p on p.Professor_number =  s.Professor_number where s.professor_number = 10008 and s.name LIKE CONCAT('%',#{keyword},'%')  order by s.university_number
+				 join professor as p on p.Professor_number =  s.Professor_number where s.professor_number = #{professor} and s.name LIKE CONCAT('%',#{keyword},'%')  order by s.university_number
 	]]>
 	</select>
 

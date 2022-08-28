@@ -50,7 +50,7 @@ function setLevel() {
 	}
 }
 
-function setLevelValue(data){
+function setLevelValue(data){ 
 	let MaxLevelScore = document.getElementsByName("MaxLevelScore");
 	let levelSet_Hight_Max = document.getElementsByName("Hight_Max");
 	let levelSet_Hight_Min = document.getElementsByName("Hight_Min");

@@ -12,7 +12,7 @@
 				</div>
 			</div>
 			<div class="seowon_logo">
-				<a href="http://211.59.155.146:8080/index.jsp"><img src="https://semsplus.seowon.ac.kr/contents/images/client/common/header_logo.svg"/></a>
+				<a href="/index.jsp"><img src="https://semsplus.seowon.ac.kr/contents/images/client/common/header_logo.svg"/></a>
 			</div>
 			<div class="btn_sitemap">
 				<i class="fa-solid fa-bars"></i>
@@ -28,7 +28,7 @@
 				<li><a class="top_menu" href="/Education_Identity_Test_Servlet">설문/진단</a></li>
 				<li><a class="top_menu">인증</a></li>
 				<li><a class="top_menu">커뮤니티</a></li>
-				<li><a class="top_menu" href="/Project_NCP/prototypeMypage.jsp">마이페이지</a></li>
+				<li><a class="top_menu" href="/Mypage_Servlet">마이페이지</a></li>
 			</ul>
 		</div>
 		<div class="visual_area">

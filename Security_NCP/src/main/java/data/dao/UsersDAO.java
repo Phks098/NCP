@@ -18,7 +18,7 @@ public class UsersDAO {
 	private static SqlSessionFactory getInstance() {
 		if (sqlMapper == null) {
 			try {
-				String resource = "mybatis/SqlMapConfig.xml";
+				String resource = "data/mybatis/SqlMapConfig.xml";
 				Reader reader = Resources.getResourceAsReader(resource);
 				sqlMapper = new SqlSessionFactoryBuilder().build(reader);
 				reader.close();
