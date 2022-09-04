@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper
-      PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-   
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
 <mapper namespace="mapper.preparation_level">
 
 	<resultMap id="preparation_level_Result" type="Preparation_Level_VO">
@@ -14,24 +12,32 @@
 	</resultMap>
 
 	<!-- 상품 전체 항목 검색 -->
-	<select id="selectAll" resultMap="preparation_level_Result"	>
-	<![CDATA[
+	<select id="selectAll" resultMap="preparation_level_Result">
+		<![CDATA[
 		select *
 		from Preparation_Level 
 		where university_number = '202011346'
-		order by preparation_degree asc
-		limit 3;
+		order by preparation_degree 
 	]]>
 	</select>
 
 	<select id="selectOne" resultMap="preparation_level_Result" parameterType="String">
-      <![CDATA[  
+		<![CDATA[  
 		select *
 		from Preparation_Level 
 		where university_number = #{student_number}
-		order by preparation_degree asc
+		order by preparation_rank;
+      ]]>
+	</select>
+	
+
+	<select id="selectOneDesc" resultMap="preparation_level_Result" parameterType="String">
+		<![CDATA[  
+		select *
+		from Preparation_Level 
+		where university_number = #{student_number}
+		order by preparation_rank DESC
 		limit 3;
       ]]>
-     </select>
-
+	</select>
 </mapper>

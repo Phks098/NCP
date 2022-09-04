@@ -1,7 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE configuration
-PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
-"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
 
 <configuration>
 	<typeAliases>
@@ -13,6 +11,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<typeAlias type="data.vo.NCS_Part_VO" alias="NCS_Part_VO" />
 		<typeAlias type="data.vo.TALENT_Capability_VO" alias="TALENT_Capability_VO" />
 		<typeAlias type="data.vo.Program_Operating_Method_VO" alias="Program_Operating_Method_VO" />
+		<typeAlias type="data.vo.Capability_category_VO" alias="Capability_category_VO" />
 		<typeAlias type="data.vo.College_Information_VO" alias="College_Information_VO" />
 		<typeAlias type="data.vo.Department_Information_VO" alias="Department_Information_VO" />
 		<typeAlias type="data.vo.Major_Information_VO" alias="Major_Information_VO" />
@@ -22,20 +21,19 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<typeAlias type="data.vo.Operating_State_VO" alias="Operating_State_VO" />
 		<typeAlias type="data.vo.Evaluation_Result_Category_VO" alias="Evaluation_Result_Category_VO" />
 		<typeAlias type="data.vo.Program_Instance_VO" alias="Program_Instance_VO" />
-		<typeAlias type="data.vo.Program_Information_VO" alias="Program_Information_VO" />		
+		<typeAlias type="data.vo.Program_Information_VO" alias="Program_Information_VO" />
 		<typeAlias type="data.vo.Student_VO" alias="Student_VO" />
 		<typeAlias type="data.vo.Recommendation_Result_VO" alias="Recommendation_Result_VO" />
-		<typeAlias type="data.RecommendationResult_Program" alias="Recommendation_Result_Program" />		
-		<typeAlias type="data.Reco" alias="Reco" />		
-		<typeAlias type="data.vo.Users_VO" alias="Users_VO" />		
+		<typeAlias type="data.RecommendationResult_Program" alias="Recommendation_Result_Program" />
+		<typeAlias type="data.Reco" alias="Reco" />
+		<typeAlias type="data.vo.Users_VO" alias="Users_VO" />
 	</typeAliases>
 
 	<environments default="development">
 		<environment id="development">
 			<transactionManager type="JDBC" />
 			<dataSource type="POOLED">
-				<property name="driver"
-					value="com.mysql.cj.jdbc.Driver" />
+				<property name="driver" value="com.mysql.cj.jdbc.Driver" />
 				<property name="url" value="jdbc:mysql://localhost:3306/NCP" />
 				<property name="username" value="root" />
 				<property name="password" value="1234" />
@@ -44,6 +42,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 	</environments>
 
 	<mappers>
+		<mapper resource="mybatis/mappers/Capability_Category.xml" />
 		<mapper resource="mybatis/mappers/Preference_Information.xml" />
 		<mapper resource="mybatis/mappers/Preparation_Level.xml" />
 		<mapper resource="mybatis/mappers/Program_Large_Category.xml" />

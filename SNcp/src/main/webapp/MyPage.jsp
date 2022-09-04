@@ -2,6 +2,10 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
+<%
+request.setCharacterEncoding("utf-8");
+%>
+
 <%@ page import="rlogic.Rlogic"%>
 <%@ page import="java.util.Vector"%>
 <%@ page import="data.RecommendationResult"%>
@@ -79,7 +83,6 @@
 						</table>
 					</div>
 				</section>
-<div>qwfqw</div>
 
 
 				<section class="section_marea">
@@ -97,7 +100,6 @@
 								</tr>
 								<tr>
 									<th>진단역량</th>
-									<th>역량별 진단 점수</th>
 									<th>백분율</th>
 									<th>준비수준</th>
 									<th>순위</th>
@@ -105,15 +107,15 @@
 								</tr>
 
 								<c:choose>
-									<c:when test="${not empty preLevel}">
-										<c:forEach items="${preLevel}" var="level">
+									<c:when test="${not empty preLevels}">
+										<c:forEach items="${preLevels}" var="preLevels">
 											<tr>
-												<c:if test="${preLevel.capability_name eq '자기이해'}">
-													<th class="level_category">${level.capability_name}</th>
-													<td>${preLevel.category_score}</td>
-													<td class="level_score">${level.preparation_degree}%</td>
-													<td>${preLevel.preparation_level}</td>
-													<td>${preLevel.preparation_rank}</td>
+												<c:if test="${preLevels.capability_category eq '자기이해'}">
+													<th class="level_category">${preLevels.capability_category}</th>
+												
+													<td class="level_score">${preLevels.preparation_degree}%</td>
+													<td><c:out value="${preLevels.preparation_level}"></c:out></td>
+													<td>${preLevels.preparation_rank}</td>
 													<td rowspan="8"><div class="canvas_graph">
 															<canvas id="myCanvas" style="background-color: aliceblue"
 																width="380px" height="380px">			
@@ -121,12 +123,11 @@
 
 														</div></td>
 												</c:if>
-												<c:if test="${ preLevel.capability_name != '자기이해'}">
-													<th class="level_category">${preLevel.capability_name}</th>
-													<td>${preLevel.category_score}</td>
-													<td class="level_score">${preLevel.preparation_degree}%</td>
-													<td>${preLevel.preparation_level}</td>
-													<td>${preLevel.preparation_rank}</td>
+												<c:if test="${preLevels.capability_category != '자기이해' }">
+													<th class="level_category">${preLevels.capability_category}</th>
+													<td class="level_score"><c:out value="${preLevels.preparation_degree }" /></td>
+													<td>${preLevels.preparation_level}</td>
+													<td>${preLevels.preparation_rank}</td>
 												</c:if>
 											</tr>
 
@@ -205,14 +206,14 @@
 							<h3 class="info_text">비교과 프로그램 추천 목록</h3>
 						</div>
 
-						<c:forEach items="${results }" var="results" varStatus="status">
+						<c:forEach items="${results}" var="results" varStatus="status"  >
 							<div class="recommendation_result_table_area">
 
 								<h4>
-									<strong><c:out value="${status.count }" />. </strong> 최하위 역량(
-									<c:out value="${preLevels[status.index].capability_category }" />
+									<strong><c:out value="${status.count }"/>. </strong> 최하위 역량(
+									<c:out value="${preLevelsDesc[status.index].capability_category }" />
 									) 준비도:
-									<c:out value="${preLevels[status.index].preparation_degree }" />
+									<c:out value="${preLevelsDesc[status.index].preparation_degree }" />
 									%
 								</h4>
 								<div class="recommendation_result">
@@ -235,7 +236,7 @@
 											<c:forEach items="${results }" var="result">
 												<tr>
 													<td><c:out value="${result.code }" /></td>
-													<td><c:out value="${result.category_large_name }" /></td>
+													<td><c:out value="${result.category_large_name}" /></td>
 													<td><c:out value="${result.category_middle_name }" /></td>
 													<td><c:out value="${result.program_name }" /></td>
 													<td><c:out value="${result.day }" /></td>
@@ -267,7 +268,7 @@
 								<tr>
 									<th>희망 직무</th>
 									<td><select id="ncs">
-											<c:forEach items="${ncsList }" var="ncs">
+											<c:forEach items="${ncsList}" var="ncs">
 												<option value="${ncs.code }">
 													<c:out value="${ncs.category_name } " />
 												</option>

@@ -7,7 +7,7 @@ import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
-
+import data.vo.Capability_category_VO;
 import data.vo.College_Information_VO;
 import data.vo.Department_Information_VO;
 import data.vo.Major_Information_VO;
@@ -33,7 +33,20 @@ public class Category_DAO {
 		}
 		return sqlMapper;
 	}
+	
+	// 8개의 역량 카테고리
+	public static List<Capability_category_VO> capabilityCategorySelectAll(){
+		
+		List<Capability_category_VO> datum = null;
 
+		sqlMapper = getInstance();
+		SqlSession session = sqlMapper.openSession();
+
+		datum = session.selectList("mapper.capability_category.selectAll");
+		
+		
+		return datum;
+	}
 	
 	public static List<Major_Information_VO> majorSelectAll() {
 		List<Major_Information_VO> datum = null;

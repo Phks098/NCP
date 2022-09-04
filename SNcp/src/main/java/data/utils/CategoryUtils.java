@@ -6,6 +6,7 @@ import data.dao.Category_DAO;
 import data.dao.Program_Large_Category_DAO;
 import data.dao.Program_Middle_Category_DAO;
 import data.dao.Student_DAO;
+import data.vo.Capability_category_VO;
 import data.vo.College_Information_VO;
 import data.vo.Department_Information_VO;
 import data.vo.Major_Information_VO;
@@ -30,7 +31,7 @@ public class CategoryUtils {
 	public static List<Department_Information_VO> departmentInformationList;
 	public static List<Major_Information_VO> majorInformationList;
 	public static List<Operating_State_VO> operatingStateList;
-
+	public static List<Capability_category_VO> capabilityCategory;
 	// private static Category_DAO categoryDAO = null;
 	private static Student_DAO studentDAO = null;
 	private static Program_Middle_Category_DAO middleCategoryDAO = null;
@@ -51,7 +52,10 @@ public class CategoryUtils {
 		if (largeCategoryDAO == null) {
 			largeCategoryDAO = new Program_Large_Category_DAO();
 		}
-
+		
+		
+		
+		capabilityCategory = Category_DAO.capabilityCategorySelectAll();
 		middleCategoryList = middleCategoryDAO.selectAll();
 		largeCategoryList = largeCategoryDAO.selectAll();
 		studentSexList = Category_DAO.sexSelectAll();
@@ -72,6 +76,18 @@ public class CategoryUtils {
 	public static List<Program_Large_Category_VO> getLargeCategoryList() {
 		return largeCategoryList;
 	}
+	
+	
+	public static String getCapabilityCategoryName(String code) {
+		for (Program_Middle_Category_VO obj : middleCategoryList) {
+			if (obj.getCode().equals(code)) {
+				return obj.getCategory_name();
+			}
+		}
+		
+		return null;
+	}
+	
 
 	public static String getMiddleCategoryName(String code) {
 		for (Program_Middle_Category_VO obj : middleCategoryList) {

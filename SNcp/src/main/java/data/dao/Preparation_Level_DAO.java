@@ -52,5 +52,18 @@ public class Preparation_Level_DAO {
 
 		return data;
 	}
+	
+	public static List<Preparation_Level_VO> selectAllDesc(String student_number) {
+		List<Preparation_Level_VO> data = null;
+		sqlMapper = getInstance();
+		SqlSession session = sqlMapper.openSession();
 
+		Map<String, Object> parameter = new HashMap<>();
+
+		parameter.put("student_number", student_number);
+
+		data = session.selectList("mapper.preparation_level.selectOneDesc", parameter);
+
+		return data;
+	}
 }

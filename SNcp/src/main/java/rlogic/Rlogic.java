@@ -73,7 +73,7 @@ public class Rlogic {
 		Student_VO student = Student_DAO.getStudent(university_number);
 
 		List<Preparation_Level_VO> preLevel = null;
-		preLevel = Preparation_Level_DAO.selectAll(university_number);
+		preLevel = Preparation_Level_DAO.selectAllDesc(university_number);
 		Preference_Information_VO preferenceInfo = Student_DAO.getPreferenceInformation(university_number);
 		List<Program_Instance_VO> program_instance_list = ProgramUtils.getProgram_instance_list();
 
