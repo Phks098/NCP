@@ -10,7 +10,6 @@ import data.vo.Professor_education_identity_test_VO;
 
 
 
-//Áø·ÎÁ¤Ã¼°¨ °Ë»ç °á°ú¸¦ ÀúÀåÇÏ±â À§ÇÑ ·ÎÁ÷ÀÌ´Ù.
 
 public class EducationSet {
 	public EducationSet() {}
@@ -34,23 +33,16 @@ public class EducationSet {
 		
 		for(int i = 0; i<list.size(); i++) {
 			if(list.get(i).getTest_category() == 1) {
-				recognition_sum += list.get(i).getTest_grade();//ÀÎÁö ÃÑÇÕ
+				recognition_sum += list.get(i).getTest_grade();
 			}
 			if(list.get(i).getTest_category() == 2) {
-				behavior_sum += list.get(i).getTest_grade();//Á¤¼­ ÃÑÇÕ
+				behavior_sum += list.get(i).getTest_grade();
 			}
 			if(list.get(i).getTest_category() == 3) {
-				emotion_sum += list.get(i).getTest_grade();// Çàµ¿ ÃÑÇÕ
+				emotion_sum += list.get(i).getTest_grade();
 			}
 			
 		}
-		
-		// ÀÎÁö Á¤¼­ Çàµ¿ ¼ø¼­·Î ÀüÃ¼ ÇÕ
-		
-		// ¿µ¿ªº° ¹®Á¦°³¼ö
-		//ÀÎÁö = 7
-		//Á¤¼Ò = 7
-		//Çàµ¿ = 5
 		
 		int recognition_count = 7;
 		int behavior_sum_count = 7;
@@ -69,7 +61,7 @@ public class EducationSet {
 		float behavior_average = behavior_sum/behavior_sum_count;
 		float emotion_average = emotion_sum/emotion_count;
 		
-		System.out.println("¿ª·® Æò±Õ Á¡¼ö");
+		System.out.println("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
 		
 		System.out.println(recognition_average); //1
 		System.out.println(behavior_average);//2
@@ -77,12 +69,7 @@ public class EducationSet {
 		
 		
 		
-//		3°¡Áö ¿µ¿ª¿¡ ´ëÇÑ Æò±Õ °á°ú °ªÀ» ³ÖÀÚ 
-// 		education_identity_test_score_VO 
-//		String university_number; ÇÐ¹ø
-//		int test_number;  
-//		float category_everage;
-//		float professor_category_everage;
+
 		
 		ArrayList<Education_identity_test_score_VO> scoreList = new ArrayList();
 		
@@ -90,26 +77,18 @@ public class EducationSet {
 		
 		
 		
-		
-		
-		
 		float total_student_average = (recognition_average+behavior_average+emotion_average)/3;
 		
+
 		
-		System.out.println("¿ª·® ÃÑ Æò±ÕÁ¡¼ö"+total_student_average);
-		
-//		university_number ¤Ñ == ÇÐ¹ø
-//	    test_number int,  == Ä«Å×°í¸® ¹øÈ£
-//	    category_everage float, == Ä«Å×°í¸® Æò±Õ
-//	    professor_category_everage float == ±³¼ö´Ô Á¡¼ö
 
 		ArrayList<Professor_education_identity_test_VO> professor = new ArrayList<>();
 		
 		
 		professor = dao.getProfessor_education_identity_test_VO(unver);
-		float professor_recognition = 0; // ÀÎÁö
-		float professor_behavior = 0;//Á¤¼­
-		float professor_emotion = 0;//Çàµ¿
+		float professor_recognition = 0;
+		float professor_behavior = 0;
+		float professor_emotion = 0;
 		
 		
 		for(int i = 0; i<professor.size(); i++) {
@@ -130,8 +109,7 @@ public class EducationSet {
 		int result = (int) (((total_student_average+professor_total_average)*10)/2);
 		float real = result/10;
 		
-		System.out.println("±³¼ö Æò°¡¿Í ÇÐ»ý Á¡¼ö Á¤Ã¼°¨ Á¡¼ö = "+real);
-		
+
 		scoreList.add(new Education_identity_test_score_VO(unver,1,recognition_average,professor_recognition));
 		scoreList.add(new Education_identity_test_score_VO(unver,2,recognition_average,professor_recognition));
 		scoreList.add(new Education_identity_test_score_VO(unver,3,recognition_average,professor_recognition));
@@ -148,7 +126,7 @@ public class EducationSet {
 		
 		
 		
-		// Áø·ÎÁ¤Ã¼°¨ °Ë»ç °á°ú Ãâ·Â 3.5Á¡ ÀÌ»óÀÌ¸é ±³Á÷ , ¹Ì¸¸ÀÌ¸é ºñ±³Á÷
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½Ë»ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ 3.5ï¿½ï¿½ ï¿½Ì»ï¿½ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½ , ï¿½Ì¸ï¿½ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½
 		if(real>=3.5) {
 			check = true;
 		}else {

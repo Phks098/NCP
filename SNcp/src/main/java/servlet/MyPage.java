@@ -53,11 +53,16 @@ public class MyPage extends HttpServlet {
 		List<List<Reco>> results = rLogic.getReco(student_number);
 		Student_VO student = Student_DAO.getStudent(student_number);
 		student.setMajor(CategoryUtils.getMajorName(student.getMajor_number()));
-
+		
+		
+	
+		
 		preLevel = Preparation_Level_DAO.selectAll(student_number);
 		preLevelDesc = Preparation_Level_DAO.selectAllDesc(student_number);
 
-		request.setAttribute("capabilityCategory", CategoryUtils.capabilityCategory);
+		for(Preparation_Level_VO set : preLevel) {
+			set.setCapability_category(CategoryUtils.getCapabilityCategoryName(set.getCapability_category()));
+		}
 
 		request.setAttribute("student", student);
 		request.setAttribute("results", results);

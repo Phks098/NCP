@@ -24,7 +24,7 @@ public class Diagnosis_Criteria {
 	ResultSet rs;
 
 	String Driver = "com.mysql.cj.jdbc.Driver";
-	String url = "jdbc:mysql://211.59.155.146:3306/ncp";
+	String url ="jdbc:mysql://localhost:3306/NCP";
 	String id = "root1";
 	String password = "root";
 	
@@ -47,12 +47,12 @@ public class Diagnosis_Criteria {
 			}
 			
 			if(score >= high_min) {
-				ss.state = "³ôÀ½";
+				ss.state = "ë†’ìŒ";
 			}
 			 if(normal_max >=score && normal_min<score ) {
-				 ss.state = "º¸Åë";
+				 ss.state = "ë³´í†µ";
 			} if(low_max >= score) {
-				 ss.state = "³·À½";
+				 ss.state = "ë‚®ìŒ";
 			}
 			
 			ss.persent =Math.round(((score/high_max)*100));

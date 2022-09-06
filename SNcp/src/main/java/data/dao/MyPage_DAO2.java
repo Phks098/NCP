@@ -40,7 +40,7 @@ public class MyPage_DAO2 {
 		return sqlMapper;
 	}
 	
-	public ArrayList<ArrayList<Mypage_VO>> getStudent_LevelAll(String professor) {// �ش� �й� �л��� 8���� ���� �м� ��� ���
+	public ArrayList<ArrayList<Mypage_VO>> getStudent_LevelAll(String professor) {
 		List<Mypage_VO> data = new ArrayList<Mypage_VO>();
 		ArrayList<Mypage_VO> leve = new ArrayList<Mypage_VO>();
 		ArrayList<Mypage_VO> temp = new ArrayList<Mypage_VO>();
@@ -85,7 +85,7 @@ public class MyPage_DAO2 {
 	
 	
 	
-	// ������ü���˻� ���� ������ ������ �ش��л��� �˻����� �ʱ�ȭ ���ش�.
+
 	public void insert_Education_Identity_Test(ArrayList<String> test_result, String sutudent) {
 
 		sqlMapper = getInstance();
@@ -99,9 +99,7 @@ public class MyPage_DAO2 {
 		session.delete("mapper.education_result.delete",sutudent);
 		session.commit();
 		
-		
-//		Education_identity_test_score_VO
-		//������ �Է��ϱ�����
+
 		List<Education_identity_test_VO> list = new ArrayList<>();
 		
 		for(int i = 1; i<8; i++) {
@@ -130,7 +128,6 @@ public class MyPage_DAO2 {
 	}
 	
 
-	// ���ΰ����غ� �˻縦 �����ϰ� �ٽ� �ۼ��ϰ� �����ν� ������Ʈ�ϰ� ��
 	public void re_insert(ArrayList<String> list, String student) {
 		List<Mypage_VO> data = null;
 
@@ -234,7 +231,6 @@ public class MyPage_DAO2 {
 
 	
 	
-	// ������ü�� �˻����� �������� �Լ��̴�.
 	public ArrayList<Education_identity_test_VO> getEducation_identity_test(String univer_number) {
 		sqlMapper = getInstance();
 		SqlSession session = sqlMapper.openSession();

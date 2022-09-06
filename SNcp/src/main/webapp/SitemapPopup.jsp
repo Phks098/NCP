@@ -59,15 +59,9 @@
 					<div class="sitemap_list sitemap_list6">
 						<h2>설문/진단</h2>
 						<ul>
-							<li><a href="">핵심역량 진단</a></li>
 							<li><a href="">전공역량 진단</a></li>
-							<li><a href="">학습역량 진단</a></li>
-							<li><a href="Education_Identity_Test_Servlet">진로개발준비도 검사</a></li>
-							<li><a href="">고용가능성 진단</a></li>
-							<li><a href="">워크넷 진단</a></li>
-							<li><a href="">학지사 진단</a></li>
-							<li><a href="">인성지수 검사</a></li>
-							<li><a href="">설문조사</a></li>
+							<li><a href="CPTest.jsp">진로개발준비도 검사</a></li>
+							
 						</ul>
 					</div>
 					<div class="sitemap_list sitemap_list7">

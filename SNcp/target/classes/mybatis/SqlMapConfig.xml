@@ -84,9 +84,9 @@
 		<mapper resource="mybatis/mappers/Education_Reasult_Get.xml" />
 		<mapper resource="mybatis/mappers/Professor_weight.xml" />
 		<mapper resource="mybatis/mappers/Diagnosis_criteria.xml" />
-
-
-
+		
+		<!-- 진로정체감 및 진로개발준비도 검사-->
+		
 
 
 	
@@ -96,6 +96,6 @@
 		
 		
 		<mapper resource="mybatis/mappers/Evaluation_Result_Category.xml" />
-		<mapper resource="mybatis/mappers/Mypage.xml" />
+		
 	</mappers>
 </configuration>
