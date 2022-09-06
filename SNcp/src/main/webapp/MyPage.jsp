@@ -110,7 +110,7 @@ request.setCharacterEncoding("utf-8");
 									<c:when test="${not empty preLevels}">
 										<c:forEach items="${preLevels}" var="preLevels">
 											<tr>
-												<c:if test="${preLevels.capability_category eq '자기이해'}">
+												<c:if test="${preLevels.preparation_rank eq 1}">
 													<th class="level_category">${preLevels.capability_category}</th>
 												
 													<td class="level_score">${preLevels.preparation_degree}%</td>
@@ -123,9 +123,9 @@ request.setCharacterEncoding("utf-8");
 
 														</div></td>
 												</c:if>
-												<c:if test="${preLevels.capability_category != '자기이해' }">
+												<c:if test="${preLevels.preparation_rank != 1 }">
 													<th class="level_category">${preLevels.capability_category}</th>
-													<td class="level_score"><c:out value="${preLevels.preparation_degree }" /></td>
+													<td class="level_score"><c:out value="${preLevels.preparation_degree }" />%</td>
 													<td>${preLevels.preparation_level}</td>
 													<td>${preLevels.preparation_rank}</td>
 												</c:if>

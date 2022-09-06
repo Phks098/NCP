@@ -62,7 +62,7 @@
 							<li><a href="">핵심역량 진단</a></li>
 							<li><a href="">전공역량 진단</a></li>
 							<li><a href="">학습역량 진단</a></li>
-							<li><a href="http://61.81.215.8:8080/Project_NCP/Education_Identity_Test_Servlet?student=${cookie.number.value}">진로개발준비도 검사</a></li>
+							<li><a href="Education_Identity_Test_Servlet">진로개발준비도 검사</a></li>
 							<li><a href="">고용가능성 진단</a></li>
 							<li><a href="">워크넷 진단</a></li>
 							<li><a href="">학지사 진단</a></li>
@@ -102,8 +102,7 @@
 						<div class="sitemap_list sitemap_list10">
 							<h2>교수</h2>
 							<ul>
-								<li><a href="http://61.81.215.8:8080/Project_NCP/Professor_Search_Student_Servlet?professer=${cookie.number.value}">학생정보 조회</a></li>
-								<li><a href="">학생 평가</a></li>
+								<li><a href="Professor_Search_Student.jsp">학생정보 조회</a></li>
 							</ul>
 						</div>
 					</c:if>
@@ -113,6 +112,8 @@
 							<h2>관리자</h2>
 							<ul>
 								<li><a href="/ProgramManagement.jsp">비교과 프로그램<br />관리
+								</a></li>
+								<li><a href="/Admin_mode.jsp">역량 평가 설정<br />관리
 								</a></li>
 							</ul>
 						</div>

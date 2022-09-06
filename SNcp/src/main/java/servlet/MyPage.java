@@ -33,7 +33,7 @@ public class MyPage extends HttpServlet {
 		String power = null;
 		List<Preparation_Level_VO> preLevel = null;
 		List<Preparation_Level_VO> preLevelDesc = null;
-		
+
 		Cookie[] cookies = request.getCookies();
 		for (Cookie cookie : cookies) {
 			if (cookie.getName().equals("number")) {
@@ -44,32 +44,26 @@ public class MyPage extends HttpServlet {
 			}
 		}
 		
-
-		if (power.equals("3")) {
-			Rlogic rLogic = new Rlogic();
-			List<List<Reco>> results = rLogic.getReco(student_number);
-			Student_VO student = Student_DAO.getStudent(student_number);
-			student.setMajor(CategoryUtils.getMajorName(student.getMajor_number()));
-
-			preLevel = Preparation_Level_DAO.selectAll(student_number);
-			preLevelDesc = Preparation_Level_DAO.selectAllDesc(student_number);
-			
-			
-			for(Preparation_Level_VO test:preLevel) {
-				test.setCapability_category(CategoryUtils.getCapabilityCategoryName(test.getCapability_category()));
-				System.out.println(test.toString());
-			}
-			
-			request.setAttribute("capabilityCategory", CategoryUtils.capabilityCategory);
-			
-			request.setAttribute("student", student);
-			request.setAttribute("results", results);
-			request.setAttribute("preLevels", preLevel);
-			request.setAttribute("preLevelsDesc", preLevelDesc);
-			
-			
-			
+		System.out.println(student_number+"로그인확인");
+		if (power.equals("2")) {
+			student_number = request.getParameter("student");
 		}
+
+		Rlogic rLogic = new Rlogic();
+		List<List<Reco>> results = rLogic.getReco(student_number);
+		Student_VO student = Student_DAO.getStudent(student_number);
+		student.setMajor(CategoryUtils.getMajorName(student.getMajor_number()));
+
+		preLevel = Preparation_Level_DAO.selectAll(student_number);
+		preLevelDesc = Preparation_Level_DAO.selectAllDesc(student_number);
+
+		request.setAttribute("capabilityCategory", CategoryUtils.capabilityCategory);
+
+		request.setAttribute("student", student);
+		request.setAttribute("results", results);
+		request.setAttribute("preLevels", preLevel);
+		request.setAttribute("preLevelsDesc", preLevelDesc);
+
 		request.setAttribute("ncsList", CategoryUtils.ncsList);
 		request.setAttribute("operatingMethodList", CategoryUtils.operatingMethodList);
 
