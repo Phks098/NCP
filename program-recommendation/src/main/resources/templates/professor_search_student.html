@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="css/Main.css" />
+<link rel="stylesheet" type="text/css" href="css/MyPage.css" />
+<link rel="stylesheet" type="text/css" href="css/Professor_Search.css" />
+<link rel="stylesheet" type="text/css" href="css/LoginPopup.css" />
+<title>Insert title here</title>
+</head>
+<body>
+	<div th:insert="fragments/header :: page_toparea"></div>
+	<div th:insert="fragments/header :: SitemapPopup"></div>
+	<div th:insert="fragments/header :: LoginPopup"></div>
+	
+	<div class="main_content">
+		<div class="contents">
+			<div class="searchFormZone">
+				<div class="inner-left">
+					<input id="keyword" type="text" placeholder="지도학생 이름을 입력하세요"
+						value="">
+					<button onclick="searchPrograms();">
+						<i class="fa-solid fa-magnifying-glass"></i>
+					</button>
+				</div>
+				<div class="inner-middle"></div>
+			</div>
+			<div id="accord" class="accord"></div>
+		</div>
+
+	</div>
+	<script src="js/SitemapPopup.js"></script>
+	<script src="js/LoginPopup.js"></script>
+	<script src="js/Professor_Search.js"></script>
+</body>
+</html>
