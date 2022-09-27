@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.programrecommendation.demo.mapper.StudentMapper">
+	<select id="getAllStudentList" resultType="Student_VO">
+		SELECT * FROM student where  Professor_number = #{professer};
+	</select>
+
+	<select id="getStudent" resultType="Student_VO">
+	
+	SELECT * FROM student Where university_number = #{university_number}
+	
+	</select>
+	
+	<select id="searchStudent" resultType="Student_VO">
+		<![CDATA[
+		select s.university_number as student_number,
+		s.name as student_name,
+		major.category_name as major_name,
+		grade.category_name as grade_name, 
+		p.Professor_name as professor_name,
+		sex.category_name as sex_name 
+		from student as s 
+				join major_information as major  on s.major_number = major.code 
+				 join student_grade as grade on grade.code = s.grade 
+				 join student_sex as sex on sex.code = s.sex 
+				 join professor as p on p.Professor_number =  s.Professor_number where s.professor_number = #{professer} and s.name LIKE CONCAT('%',#{keyword},'%')  order by s.university_number
+	]]>
+	</select>
+</mapper>

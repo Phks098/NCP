@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<div>
+		<h2>This is Content</h2>
+		<hr>
+		<table border="1">
+			<tr>
+				<th>학번</th>
+				<th>카테고리</th>
+				<th>점수</th>
+				<th>수준</th>
+				<th>랭크</th>
+
+			</tr>
+
+			<th:block th:each="salary : ${student}">
+				<tr>
+					<td th:text="${salary.university_number }"></td>
+					<td th:text="${salary.capability_category}"></td>
+					<td th:text="${salary.preparation_degree}"></td>
+					<td th:text="${salary.preparation_level}"></td>
+					<td th:text="${salary.preparation_rank}"></td>
+				</tr>
+			</th:block>
+		</table>
+	</div>
+
+</body>
+</html>

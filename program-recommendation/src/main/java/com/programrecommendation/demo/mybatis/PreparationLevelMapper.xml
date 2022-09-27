@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.programrecommendation.demo.mapper.PreparationLevelMapper">
+	<select id="getPreparation" resultType="Preparation_Level_VO">
+		select level.university_number,score.category_score,category.capability_name, level.preparation_degree,level.preparation_level ,level.preparation_rank 
+		from Preparation_Level as level
+		join capability_matching_score as score on score.university_number = level.university_number  and score.capability_category = level.capability_category
+		join capability_category as category on capability_number = level.capability_category  where level.university_number =  #{university_number} order by level.preparation_rank
+	</select>
+
+</mapper>

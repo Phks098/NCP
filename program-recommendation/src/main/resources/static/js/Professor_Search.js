@@ -8,7 +8,7 @@
  function searchPrograms(){
 	let keyword = document.getElementById("keyword").value;
 	
-	request.open("Get", "./Professor_Student?keyword=" + keyword, true);
+	request.open("Get", "/professer/get?keyword=" + keyword, true);
 	request.onreadystatechange = searchProcess;
 	request.send(null);
 	
