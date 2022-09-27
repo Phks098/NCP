@@ -10,7 +10,7 @@ window.addEventListener('load', function() {
 });
 
 function initAdminPage() {
-	request.open("Get", "./AdminMode", true);
+	request.open("Get", "/admin/getAll", true);
 	request.onreadystatechange = setAdminPage;
 	request.send(null);
 	

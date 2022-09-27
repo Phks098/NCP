@@ -2,22 +2,21 @@ package com.programrecommendation.demo.model;
 
 public class Professor_weight_VO {
 	
-	int evaluation_grade;
-	float weight;
-	
-	public int getEvaluation_grade() {
+	String evaluation_grade;
+	String weight;
+	public String getEvaluation_grade() {
 		return evaluation_grade;
 	}
-	public void setEvaluation_grade(int evaluation_grade) {
+	public void setEvaluation_grade(String evaluation_grade) {
 		this.evaluation_grade = evaluation_grade;
 	}
-	public float getWeight() {
+	public String getWeight() {
 		return weight;
 	}
-	public void setWeight(float weight) {
+	public void setWeight(String weight) {
 		this.weight = weight;
 	}
-	public Professor_weight_VO(int evaluation_grade, float weight) {
+	public Professor_weight_VO(String evaluation_grade, String weight) {
 		super();
 		this.evaluation_grade = evaluation_grade;
 		this.weight = weight;
@@ -25,10 +24,7 @@ public class Professor_weight_VO {
 	public Professor_weight_VO() {
 		super();
 	}
-	@Override
-	public String toString() {
-		return "Professor_weight_VO [evaluation_grade=" + evaluation_grade + ", weight=" + weight + "]";
-	}
+	
 	
 	
 	

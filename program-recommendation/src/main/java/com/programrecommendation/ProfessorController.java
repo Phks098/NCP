@@ -22,17 +22,19 @@ public class ProfessorController {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("content/professorStudentList.html");
 		return mav;
+
 	}
-	
+
 	@ResponseBody
 	@RequestMapping(value = "/professer/get")
 	public String getKeyword(HttpServletRequest request) {
-		System.out.println("request.getParam:"+request.getParameter("keyword"));
+
+		System.out.println("request.getParam:" + request.getParameter("keyword"));
 		String keyword = request.getParameter("keyword");
-		String professor = "10008";		
-		String studentList = studentService.getAllStudentList(professor,keyword);
+		String professor = "10008";
+		String studentList = studentService.getAllStudentList(professor, keyword);
 		return studentList;
 
 	}
-	
+
 }

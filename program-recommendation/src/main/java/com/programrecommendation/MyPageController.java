@@ -19,11 +19,9 @@ public class MyPageController {
 
 	@Autowired
 	StudentService studentService;
-	
-	@Autowired 
-	PreparationLevelService preparationService;
-	
 
+	@Autowired
+	PreparationLevelService preparationService;
 
 	@RequestMapping(value = "/mypage")
 	public ModelAndView goMypage(HttpServletRequest request) {
@@ -32,21 +30,19 @@ public class MyPageController {
 		Student_VO student = studentService.getStudent(request.getParameter("university_number"));
 		List<Preparation_Level_VO> level = preparationService.getPreparationLevel("");
 		mav.addObject("student", student);
-		mav.addObject("level",level);
+		mav.addObject("level", level);
 		mav.setViewName("content/mypage.html");
 		return mav;
 
 	}
-	
+
 	@RequestMapping(value = "/test")
 	public ModelAndView test(HttpServletRequest request) {
 
 		ModelAndView mav = new ModelAndView();
 		List<Preparation_Level_VO> level = preparationService.getPreparationLevel("");
-		mav.addObject("student",level);
-		
-		
-		
+		mav.addObject("student", level);
+
 		mav.setViewName("content/home.html");
 		return mav;
 

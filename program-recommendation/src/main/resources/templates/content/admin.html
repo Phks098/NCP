@@ -1,21 +1,22 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="UTF-8">
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <title>서원대학교</title>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="stylesheet" type="text/css" href="css/Main.css" />
-<link rel="stylesheet" type="text/css" href="css/Main_Content.css" />
-<link rel="stylesheet" type="text/css" href="css/LoginPopup.css" />
 <link rel="stylesheet" type="text/css" href="css/admin.css" />
-<link rel="stylesheet" type="text/css" href="css/Prototype_CSS.css" />
+<link rel="stylesheet" type="text/css" href="css/LoginPopup.css" />
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"
+	integrity="sha512-rqQltXRuHxtPWhktpAZxLHUVJ3Eombn3hvk9PHjV/N5DMUYnzKPC1i3ub0mEXgFzsaZNeJcoE0YHq0j/GFsdGg=="
+	crossorigin="anonymous" referrerpolicy="no-referrer" />
+<script src="https://kit.fontawesome.com/46fda0e82e.js"
+	crossorigin="anonymous"></script>
 </head>
 <body>
-	<div th:each="index :  ${#numbers.sequence(1,6)}">
-		<input type="text" th:value="test_+${index}" th:id="test_+${index}">
 
-	</div>
-	<input type="button" onclick="test()">
 	<div th:insert="fragments/header :: page_toparea"></div>
 	<div th:insert="fragments/header :: SitemapPopup"></div>
 	<div th:insert="fragments/header :: LoginPopup"></div>
@@ -155,9 +156,9 @@
 							<tr>
 								<th>자기이해</th>
 
-								<td th:each="index :  ${#numbers.sequence(1,6)}"><input
+								<td th:each="num : ${#numbers.sequence(1,6)}"><input
 									class="matchText" type="number" name="matchGet"
-									id="match01_+${index}">%</td>
+									th:id="'match01_'+${num}">%</td>
 
 								<td><input class="matchText" type="number" name="matchSum"
 									readonly="readonly" id="match01_7">%</td>
@@ -167,9 +168,9 @@
 							<tr>
 								<th>진로탐색</th>
 
-								<td th:each="index :  ${#numbers.sequence(1,6)}"><input
+								<td th:each="num : ${#numbers.sequence(1,6)}"><input
 									class="matchText" type="number" name="matchGet"
-									id="match02_+${index}"> %</td>
+									th:id="'match02_'+${num}"> %</td>
 
 								<td><input class="matchText" type="number" name="matchSum"
 									readonly="readonly" id="match02_7">%</td>
@@ -178,9 +179,8 @@
 							<tr>
 								<th>진로결정</th>
 
-								<td th:each="index :  ${#numbers.sequence(1,6)}"><input
-									class="matchText" type="number" name="matchGet"
-									id="match03_+${index}"> %</td>
+								<td th:each="num : ${#numbers.sequence(1,6)}"><input class="matchText" type="number" name="matchGet"
+									th:id="'match03_'+${num}"> %</td>
 
 								<td><input class="matchText" type="number" name="matchSum"
 									readonly="readonly" id="match03_7">%</td>
@@ -189,9 +189,9 @@
 							<tr>
 								<th>진로설계</th>
 
-								<td th:each="index :  ${#numbers.sequence(1,6)}"><input
+								<td th:each="num : ${#numbers.sequence(1,6)}"><input
 									class="matchText" type="number" name="matchGet"
-									id="match04_${status.index}"> %</td>
+									th:id="'match04_'+${num}"> %</td>
 
 								<td><input class="matchText" type="number" name="matchSum"
 									readonly="readonly" id="match04_7">%</td>
@@ -200,9 +200,9 @@
 							<tr>
 								<th>경력개발</th>
 
-								<td th:each="index :  ${#numbers.sequence(1,6)}"><input
+								<td th:each="num : ${#numbers.sequence(1,6)}"><input
 									class="matchText" type="number" name="matchGet"
-									id="match05_${status.index}"> %</td>
+									th:id="'match05_'+${num}"> %</td>
 
 								<td><input class="matchText" type="number" name="matchSum"
 									readonly="readonly" id="match05_7">%</td>
@@ -211,9 +211,9 @@
 							<tr>
 								<th>실무역량</th>
 
-								<td th:each="index :  ${#numbers.sequence(1,6)}"><input
+								<td th:each="num : ${#numbers.sequence(1,6)}"><input
 									class="matchText" type="number" name="matchGet"
-									id="match06_${status.index}"> %</td>
+									th:id="'match06_'+${num}"> %</td>
 
 								<td><input class="matchText" type="number" name="matchSum"
 									readonly="readonly" id="match06_7">%</td>
@@ -222,9 +222,9 @@
 							<tr>
 								<th>맞춤취업</th>
 
-								<td th:each="index :  ${#numbers.sequence(1,6)}"><input
+								<td th:each="num : ${#numbers.sequence(1,6)}"><input
 									class="matchText" type="number" name="matchGet"
-									id="match07_${status.index}"> %</td>
+									th:id="'match07_'+${num}"> %</td>
 
 								<td><input class="matchText" type="number" name="matchSum"
 									readonly="readonly" id="match07_7">%</td>
@@ -233,9 +233,9 @@
 							<tr>
 								<th>구직활동</th>
 
-								<td th:each="index :  ${#numbers.sequence(1,6)}"><input
+								<td th:each="num : ${#numbers.sequence(1,6)}"><input
 									class="matchText" type="number" name="matchGet"
-									id="match08_${status.index}"> %</td>
+									th:id="'match08_'+${num}"> %</td>
 
 								<td><input class="matchText" type="number" name="matchSum"
 									readonly="readonly" id="match08_7">%</td>
@@ -423,56 +423,12 @@
 		</div>
 	</main>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	<div th:insert="fragments/header :: SitemapPopup"></div>
-	<div th:insert="fragments/header :: LoginPopup"></div>
-
 	<script src="js/SitemapPopup.js"></script>
 	<script src="js/LoginPopup.js"></script>
 	<script src="js/Admin_mode.js"></script>
 	<script src="js/professor_weight.js"></script>
 	<script src="js/match.js"></script>
 	<script src="js/Level.js"></script>
-
-
-
 
 </body>
 </html>
